@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".VVIP">
+
+    <include
+        layout="@layout/vviptoolbar"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+
+    <LinearLayout
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:paddingTop="5dp"
+        android:background="#F4F6F8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_margin="20dp"
+            android:id="@+id/vviptext"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:text="WELLCOME TO GOLDEN ODDS VVIP SECTION \n \n Click on Contact us button bellow for VVIP TICKET(100%) FIXED GAMES. \n Note (NO PAY AFTER ) "
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/whatsappLinear"
+        android:gravity="center"
+        android:background="@drawable/botton12"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="match_parent"
+       android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_marginStart="5dp"
+            android:id="@+id/whatsapp"
+            android:background="@drawable/botton12"
+            android:text="Contact Us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

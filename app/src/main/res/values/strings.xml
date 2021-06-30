@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">GOLDEN ODDS</string>
+
+
+    <string name="sign_up1">SIGN UP</string>
+    <string name="enter_your_email1">Enter your Email..</string>
+    <string name="todo1">TODO</string>
+    <string name="enter_your_password1">Enter your password..</string>
+    <string name="todo11">TODO</string>
+    <string name="confirm_your_password">Confirm your password..</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="you_have_an_existing_account">You have an existing account</string>
+    <string name="sign_in11">SIGN IN</string>
+    <string name="sign_in22">SIGN IN</string>
+    <string name="enter_your_email22">Enter your Email..</string>
+    <string name="todo22">TODO</string>
+    <string name="enter_your_password22">Enter your password</string>
+    <string name="sign_in2">SIGN IN</string>
+    <string name="you_dont_have_an_existing_account2">You dont have an existing account</string>
+    <string name="sign_up222">SIGN UP</string>
+    <string name="country">Country</string>
+    <string name="_20_20_2020">20/20/2020</string>
+    <string name="_3pm">3pm</string>
+    <string name="manu_vs_arsanal">manU vs Arsanal</string>
+    <string name="tips_1">tips 1</string>
+    <string name="odd_4_00">odd 4.00</string>
+    <string name="won">won</string>
+    <string name="vip_tips">VIP TIPS</string>
+    <string name="todo">TODO</string>
+    <string name="_100">100</string>
+    <string name="_1_x_2">1 X 2</string>
+    <string name="both_teams_to_score">Both teams to score</string>
+    <string name="ov_2_5_goals">OV 2.5 goals</string>
+    <string name="vvip">VVIP</string>
+    <string name="combo">COMBO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="_80_winning_rate">80% winning rate</string>
+
+</resources>
