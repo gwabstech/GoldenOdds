@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+        app:adUnitId="ca-app-pub-6125586393387357/7451849846" />
 
     <LinearLayout
         android:layout_marginStart="10dp"

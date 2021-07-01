@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splashscreen"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".splashscreen"
     tools:ignore="Overdraw">
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="120dp"
+        android:src="@drawable/ic_icon_soccerball"
+        android:scaleType="fitXY"
+        android:layout_height="120dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="GOLDEN ODDS"
+        android:textStyle="italic"
+        android:layout_marginTop="6dp"
+        android:textSize="25sp"
+        android:textColor="#ED63BA08"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

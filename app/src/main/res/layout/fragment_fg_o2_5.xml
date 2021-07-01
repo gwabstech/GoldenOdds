@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        ads:adUnitId="ca-app-pub-6125586393387357/1748638624">
     </com.google.android.gms.ads.AdView>
 
     <androidx.recyclerview.widget.RecyclerView

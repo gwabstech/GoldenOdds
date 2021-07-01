@@ -52,7 +52,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
     // ADS VARIABLES
     public InterstitialAd mInterstitialAd;
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712";
+    private static final String AD_UNIT_ID = "ca-app-pub-6125586393387357/5708179878";
 
 
     @Override
@@ -197,7 +197,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
                       // an ad is loaded.
                       HOME.this.mInterstitialAd = interstitialAd;
                       Log.i("TAG", "onAdLoaded");
-                      Toast.makeText(HOME.this, "onAdLoaded()", Toast.LENGTH_SHORT).show();
+                   //   Toast.makeText(HOME.this, "onAdLoaded()", Toast.LENGTH_SHORT).show();
                       interstitialAd.setFullScreenContentCallback(
                               new FullScreenContentCallback() {
                                   @Override
@@ -235,9 +235,11 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
                               String.format(
                                       "domain: %s, code: %d, message: %s",
                                       loadAdError.getDomain(), loadAdError.getCode(), loadAdError.getMessage());
-                      Toast.makeText(
+                     /* Toast.makeText(
                               HOME.this, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT)
                               .show();
+
+                      */
                   }
               });
   }
