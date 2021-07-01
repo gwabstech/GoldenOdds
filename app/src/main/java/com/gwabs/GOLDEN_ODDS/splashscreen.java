@@ -1,8 +1,5 @@
 package com.gwabs.GOLDEN_ODDS;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,13 +7,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Toast;
 
-import com.startapp.sdk.adsbase.StartAppAd;
-import com.startapp.sdk.adsbase.StartAppSDK;
-
-import static com.startapp.sdk.adsbase.StartAppAd.*;
-import static com.startapp.sdk.adsbase.StartAppSDK.*;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class splashscreen extends AppCompatActivity {
 
@@ -27,9 +20,7 @@ public class splashscreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
-        init(getApplicationContext(), "209031346", false);
-        enableReturnAds(false);
-        disableSplash();
+
 
 
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);

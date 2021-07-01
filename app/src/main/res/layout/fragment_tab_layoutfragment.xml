@@ -10,7 +10,7 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout"
-        android:background="#66b0b7"
+        android:background="#36B1AD"
         app:tabSelectedTextColor="#000000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

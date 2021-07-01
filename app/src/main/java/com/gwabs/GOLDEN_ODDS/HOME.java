@@ -37,17 +37,20 @@ import java.util.Objects;
 
 public class HOME extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
+    // VARIABLLE DECLIRATION
     private AdView mAdView;
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navView;
 
+    // FRAGMENT CLASS VERIABLES
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
 
 
 
+    // ADS VARIABLES
     public InterstitialAd mInterstitialAd;
     private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712";
 
@@ -58,6 +61,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         setContentView(R.layout.home1);
 
 
+        // ADS INTIALIZATION
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {}
@@ -65,14 +69,17 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         loadAds();
 
 
+        // UI INITIALIZATION
 
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
         navView = findViewById(R.id.navView);
 
         setSupportActionBar(toolbar);
+        // SETTING THE TIITLE OF ACTION BAR
         Objects.requireNonNull(getSupportActionBar()).setTitle("Golden Odds");
         navView.setNavigationItemSelectedListener( this);
+
 
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, (R.string.open), (R.string.close));
