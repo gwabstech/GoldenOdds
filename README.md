@@ -1,0 +1,2 @@
+# GoldenOdds
+betting tips
