@@ -38,5 +38,6 @@
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="_80_winning_rate">80% winning rate</string>
+    <string name="app_version">App version</string>
 
 </resources>

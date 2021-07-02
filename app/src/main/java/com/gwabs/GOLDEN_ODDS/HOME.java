@@ -95,7 +95,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         fragmentTransaction.add(R.id.contener_fragment,new TabLayoutfragment());
         fragmentTransaction.commit();
 
-        mAdView = (AdView) header.findViewById(R.id.adViewhdv);
+        mAdView = header.findViewById(R.id.adViewhdv);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
@@ -230,7 +230,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
                   @Override
                   public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                       // Handle the error
-                    Log.i("Tag",loadAdError.getMessage().toString());
+                    Log.i("Tag", loadAdError.getMessage());
                      mInterstitialAd = null;
 
                       @SuppressLint("DefaultLocale") String error =
