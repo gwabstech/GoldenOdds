@@ -150,6 +150,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
             case R.id.Share_App:
                 ShareApp();
                 break;
+
             case R.id.Exit:
 
                 if (mInterstitialAd == null) {
@@ -184,6 +185,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
+
   public void loadAds(){
       AdRequest adRequest = new AdRequest.Builder().build();
       InterstitialAd.load(
@@ -261,6 +263,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         }
 
     }
+
 
 
 

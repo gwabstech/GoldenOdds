@@ -25,4 +25,12 @@
         android:layout_height="wrap_content"/>
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="bottom"
+        android:text="App version"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:id="@+id/Appver"
+        android:layout_height="wrap_content"/>
 </androidx.appcompat.widget.LinearLayoutCompat>
