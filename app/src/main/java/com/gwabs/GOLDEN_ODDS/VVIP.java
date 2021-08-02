@@ -23,20 +23,14 @@ import com.google.firebase.database.ValueEventListener;
 
 public class VVIP extends AppCompatActivity {
 
-    private AdView mAdView;
- private    ImageView clickBack;
-  private   TextView title;
-  private   String titlee;
-  private   Button whatsapp;
+    private    ImageView clickBack;
+    private   TextView title;
+    private   String titlee;
+    private   Button whatsapp;
     private DatabaseReference myreff;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_v_v_i_p);
-
-        mAdView = findViewById(R.id.adView01);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
 
         myreff = FirebaseDatabase.getInstance().getReference();
 

@@ -1,27 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:weightSum="7"
     tools:context=".fgO2_5">
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="3dp"
+        android:layout_weight="6.8"
+        android:id="@+id/recyclerview4"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView6"
+        android:layout_weight="0.2"
+        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-6125586393387357/1748638624">
+        ads:adUnitId="@string/Over2BannerID">
     </com.google.android.gms.ads.AdView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_margin="3dp"
-        android:layout_below="@id/adView6"
-        android:id="@+id/recyclerview4"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-</RelativeLayout>
+</LinearLayout>

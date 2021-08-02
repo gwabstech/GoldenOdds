@@ -16,6 +16,7 @@
       <w>getcoin</w>
       <w>getdata</w>
       <w>goldenodd</w>
+      <w>intesetiial</w>
       <w>intv</w>
       <w>isvalid</w>
       <w>manu</w>
@@ -26,6 +27,7 @@
       <w>pasword</w>
       <w>paswordd</w>
       <w>previouse</w>
+      <w>previuse</w>
       <w>recangle</w>
       <w>recyclerlinearlayout</w>
       <w>recyler</w>
@@ -43,11 +45,13 @@
       <w>txttoolbarvip</w>
       <w>txtvip</w>
       <w>uptv</w>
+      <w>viewprv</w>
       <w>viptext</w>
       <w>viptoolbar</w>
       <w>vvip</w>
       <w>vvipip</w>
       <w>vviptext</w>
+      <w>vviptoolbar</w>
     </words>
   </dictionary>
 </component>

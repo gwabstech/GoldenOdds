@@ -26,12 +26,7 @@ import java.util.ArrayList;
 
 public class FgAwey_Win extends Fragment {
 
-    private RecyclerView recyclerView;
-    private ArrayList<Massage> Massagelist;
-    private myAdapter myAdapter;
-    private DatabaseReference myreff;
 
-    private AdView mAdView;
 
     public FgAwey_Win() {
         // Required empty public constructor
@@ -43,76 +38,38 @@ public class FgAwey_Win extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_fg_awey__win, container, false);
 
-        recyclerView = view.findViewById(R.id.recyclerview2);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerview2);
         LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
 
-        mAdView = view.findViewById(R.id.adView03);
+        HOME home = new HOME();
+
+        AdView mAdView = view.findViewById(R.id.adView03);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         // firebase
 
-        myreff = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference myreff = FirebaseDatabase.getInstance().getReference();
 
         // Arraylist
 
-        Massagelist = new ArrayList<>();
 
-        // clearAll
-        ClearAll();
+        ArrayList<Massage> massagelist = new ArrayList<>();
+        myAdapter myAdapter = new myAdapter(getContext(),massagelist);
+
+        home.ClearAll(massagelist,myAdapter);
 
 
-        getDatafromFirebase();
+        final String sunandata = "AwayWins";
+
+        home.getDataFromFirebase(sunandata,massagelist,recyclerView,myAdapter,myreff);
+
 
         return  view;
+        //
     }
-    private void getDatafromFirebase() {
-        String sunandata = "AwayWins";
-        Query query  = myreff.child(sunandata);
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                ClearAll();
-
-                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
-                    Massage massage = new Massage();
-                    massage.setDate(snapshot.child("Date").getValue().toString());
-                    massage.setTime(snapshot.child("Time").getValue().toString());
-                    massage.setGame(snapshot.child("Game").getValue().toString());
-                    massage.setOdds(snapshot.child("odds").getValue().toString());
-                    massage.setTips(snapshot.child("tips").getValue().toString());
-                    massage.setStatus(snapshot.child("status").getValue().toString());
-                    massage.setCountry(snapshot.child("country").getValue().toString());
-                    Massagelist.add(massage);
-                }
-                myAdapter = new myAdapter(getContext(),Massagelist);
-                recyclerView.setAdapter(myAdapter);
-                myAdapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                try {
-                    Log.i("error","some issoes please refresh");
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    private void ClearAll(){
-        if (Massagelist != null){
-            Massagelist.clear();
-
-            if (myAdapter != null){
-                myAdapter.notifyDataSetChanged();
-            }
 
 
-        }
-        Massagelist = new ArrayList<>();
-    }
+
 }

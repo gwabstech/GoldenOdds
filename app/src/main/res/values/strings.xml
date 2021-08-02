@@ -25,19 +25,32 @@
     <string name="tips_1">tips 1</string>
     <string name="odd_4_00">odd 4.00</string>
     <string name="won">won</string>
-    <string name="vip_tips">VIP TIPS</string>
     <string name="todo">TODO</string>
     <string name="_100">100</string>
     <string name="_1_x_2">1 X 2</string>
     <string name="both_teams_to_score">Both teams to score</string>
     <string name="ov_2_5_goals">OV 2.5 goals</string>
     <string name="vvip">VVIP</string>
-    <string name="combo">COMBO</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="combogg">COMBO</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="_80_winning_rate">80% winning rate</string>
     <string name="app_version">App version</string>
+    <string name="Add_Unit_Id_Intesetiial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="VVIPBannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="DrawerHeaderBannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="HomeBannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="BTTSBannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ComboBannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="AweyBannnerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="Over2BannerID">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="PreviuseBannerId">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="vip_tips">VIP TIPS</string>
+    <string name="live_score">Live Score</string>
+    <string name="previous_vip_games">Previous Vip Games</string>
+    <string name="share_app">Share App</string>
+    <string name="exit">Exit</string>
+    <string name="stack_with_melbet">Stack With Melbet</string>
 
 </resources>

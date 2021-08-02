@@ -54,23 +54,6 @@
 
    </LinearLayout>
 
- <LinearLayout
-     android:layout_below="@id/llt"
-     android:layout_width="match_parent"
-     android:orientation="vertical"
-     android:layout_height="wrap_content">
-
-     <com.google.android.gms.ads.AdView
-         android:layout_marginTop="5dp"
-         xmlns:ads="http://schemas.android.com/apk/res-auto"
-         android:id="@+id/adViewhdv"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         ads:adSize="BANNER"
-         ads:adUnitId="ca-app-pub-6125586393387357/8542397241">
-     </com.google.android.gms.ads.AdView>
- </LinearLayout>
-
 
 
 </RelativeLayout>

@@ -10,15 +10,8 @@
     <include
         layout="@layout/vviptoolbar"/>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView01"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-6125586393387357/7451849846" />
-
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:paddingTop="5dp"
