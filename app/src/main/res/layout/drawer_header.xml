@@ -1,58 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/download"
+
+    xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center_vertical"
     android:layout_width="match_parent"
-    android:layout_height="180dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_marginTop="15dp"
         android:id="@+id/Son"
-        android:layout_marginStart="20dp"
-        android:layout_width="wrap_content"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitXY"
             android:id="@+id/profile_logoImg"
-            android:src="@mipmap/logo"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:text="GOLDEN ODDS"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="#000000"
-            android:layout_marginStart="20dp"
-            android:layout_height="wrap_content"/>
-
-
+            android:src="@drawable/aa"
+            android:contentDescription="@string/todo" />
 
 
 
     </LinearLayout>
 
-   <LinearLayout
-       android:id="@+id/llt"
-       android:layout_below="@id/Son"
-       android:layout_margin="3dp"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
+    <include
+        android:layout_below="@id/Son"
+        layout="@layout/melbetbanner"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
 
-       <TextView
-           android:gravity="center"
-           android:textSize="20sp"
-           android:textColor="#000000"
-           android:textStyle="italic"
-           android:text="@string/_80_winning_rate"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
-
-   </LinearLayout>
 
 
 

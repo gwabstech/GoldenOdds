@@ -45,9 +45,7 @@ public class FgAwey_Win extends Fragment {
 
         HOME home = new HOME();
 
-        AdView mAdView = view.findViewById(R.id.adView03);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
         // firebase
 
         DatabaseReference myreff = FirebaseDatabase.getInstance().getReference();

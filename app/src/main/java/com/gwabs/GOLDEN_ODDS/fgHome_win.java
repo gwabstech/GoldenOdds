@@ -1,5 +1,13 @@
 package com.gwabs.GOLDEN_ODDS;
 
+import static android.content.Intent.ACTION_VIEW;
+import static android.content.Intent.CATEGORY_BROWSABLE;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_REQUIRE_NON_BROWSER;
+
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +19,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -26,7 +35,7 @@ import java.util.ArrayList;
 
 public class fgHome_win extends Fragment {
 
-
+   private ImageButton imageButton;
 
     public fgHome_win() {
         // Required empty public constructor
@@ -39,18 +48,17 @@ public class fgHome_win extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fghome_win, container, false);
-        AdView mAdView = view.findViewById(R.id.adView02);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview1);
         LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         HOME home = new HOME();
        /// loading adds
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 
         // firebase
 
+        imageButton = view.findViewById(R.id.melBetBanner1);
         DatabaseReference myreff = FirebaseDatabase.getInstance().getReference();
 
         // Arraylist
@@ -62,7 +70,30 @@ public class fgHome_win extends Fragment {
 
         home.getDataFromFirebase(sunandata,massagelist,recyclerView,myAdapter,myreff);
 
+        imageButton.setOnClickListener(v -> myAffiliated());
+
+
         return view;
+    }
+
+    private void myAffiliated() {
+        String myLink = "https://refpakrtsb.top/L?tag=d_1099631m_18639c_&site=1099631&ad=18639";
+        try {
+            Intent intent = new Intent(ACTION_VIEW, Uri.parse(myLink));
+            // The URL should either launch directly in a non-browser app (if it's the
+            // default), or in the disambiguation dialog.
+            intent.addCategory(CATEGORY_BROWSABLE);
+            intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_REQUIRE_NON_BROWSER);
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            // Only browser apps are available, or a browser is the default.
+            // So you can open the URL directly in your app, for example in a
+            // Custom Tab.
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myLink));
+            startActivity(browserIntent);
+
+        }
     }
 
 

@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:text="@string/tips_1"
-                    android:textColor="#FF0000"
+                    android:textColor="#ED6363"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="50dp"
                     android:text="@string/odd_4_00"
-                    android:textColor="#FF0000"
+                    android:textColor="#ED6363"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

@@ -45,7 +45,6 @@ public class fgO2_5 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fg_o2_5, container, false);
 
-        AdView mAdView = view.findViewById(R.id.adView6);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview4);
         LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -56,8 +55,7 @@ public class fgO2_5 extends Fragment {
 
         DatabaseReference myreff = FirebaseDatabase.getInstance().getReference();
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
         // Arraylist
 
         ArrayList<Massage> massagelist = new ArrayList<>();

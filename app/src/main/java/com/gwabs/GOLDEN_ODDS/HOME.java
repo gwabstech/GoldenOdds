@@ -1,6 +1,12 @@
 package com.gwabs.GOLDEN_ODDS;
 
+import static android.content.Intent.ACTION_VIEW;
+import static android.content.Intent.CATEGORY_BROWSABLE;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_REQUIRE_NON_BROWSER;
+
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,8 +39,10 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.startapp.sdk.adsbase.StartAppAd;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -53,6 +62,10 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
     // ADS VARIABLES
     public InterstitialAd mInterstitialAd;
+    private StartAppAd startAppAd ;
+    private DatabaseReference myreff;
+
+
 
 
     @Override
@@ -65,6 +78,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
             @Override
             public void onInitializationComplete(@NotNull InitializationStatus initializationStatus) {}
         });
+        startAppAd = new StartAppAd(this);
         loadAds();
 
         // UI INITIALIZATION
@@ -72,6 +86,10 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         drawerLayout = findViewById(R.id.drawerLayout);
         NavigationView navView = findViewById(R.id.navView);
         setSupportActionBar(toolbar);
+
+        View headerView = navView.getHeaderView(0);
+
+        ImageButton mmelbetbanner = headerView.findViewById(R.id.melBetBanner1);
         // SETTING THE TIITLE OF ACTION BAR
         Objects.requireNonNull(getSupportActionBar()).setTitle("Golden Odds");
         navView.setNavigationItemSelectedListener( this);
@@ -85,6 +103,14 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.contener_fragment,new TabLayoutfragment());
         fragmentTransaction.commit();
+        myreff = FirebaseDatabase.getInstance().getReference();
+
+        mmelbetbanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myAffiliated();
+            }
+        });
 
         // VARIABLLE DECLIRATION
 
@@ -106,6 +132,29 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
     }
 
+    public void myAffiliated() {
+        String myLink = "https://refpakrtsb.top/L?tag=d_1099631m_18639c_&site=1099631&ad=18639";
+
+
+
+        try {
+            Intent intent = new Intent(ACTION_VIEW, Uri.parse(myLink));
+            // The URL should either launch directly in a non-browser app (if it's the
+            // default), or in the disambiguation dialog.
+            intent.addCategory(CATEGORY_BROWSABLE);
+            intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_REQUIRE_NON_BROWSER);
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            // Only browser apps are available, or a browser is the default.
+            // So you can open the URL directly in your app, for example in a
+            // Custom Tab.
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myLink));
+            startActivity(browserIntent);
+
+        }
+    }
+
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -113,23 +162,22 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
         switch (item.getItemId()){
             case R.id.LiveScore:
-
                 Toast.makeText(getApplicationContext(),
-                        "This feature is coming soon",Toast.LENGTH_SHORT).show();
+                        "Coming soon",Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.prevGames:
 
+            case R.id.prevGames:
                 Intent intent7 = new Intent(getApplicationContext(),previouseGames.class);
                 startActivity(intent7);
                 drawerLayout.closeDrawers();
                 break;
 
             case R.id.Share_App:
-
-                Toast.makeText(this,"i was clicked",Toast.LENGTH_LONG).show();
+               // Toast.makeText(this,"i was clicked",Toast.LENGTH_LONG).show();
                 ShareApp();
-                showAdds();
                 loadAds();
+                showAdds();
+
                 break;
 
             case R.id.Exit:
@@ -137,6 +185,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
                 finish();
                 showAdds();
                 break;
+
 
             default:
                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
@@ -150,17 +199,18 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
         switch (item.getItemId()){
             case R.id.VipGms:
-                Intent intent = new Intent(getApplicationContext(),VVIP.class);
-                startActivity(intent);
-                drawerLayout.closeDrawers();
-                showAdds();
-                loadAds();
+
+                try {
+                    getviplink();
+                    showAdds();
+                    loadAds();
+                } catch (NullPointerException nullPointerException) {
+                    Log.i("stack", nullPointerException.toString());
+                }
+
                 break;
             case R.id.referral:
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
-                startActivity(browserIntent);
-                showAdds();
-                loadAds();
+                myAffiliated();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -211,9 +261,8 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
             if (mInterstitialAd != null) {
                 mInterstitialAd.show(HOME.this);
             } else {
-                loadAds();
-                mInterstitialAd.show(HOME.this);
-                Log.d("TAG", "The interstitial ad wasn't ready yet.");
+               startAppAd.loadAd();
+               startAppAd.showAd();
             }
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -306,4 +355,40 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         inflater.inflate(R.menu.menu1, menu);
         return true;
     }
+
+
+    private void getviplink(){
+        Query query  = myreff.child("vvipuri");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String url= snapshot.getValue().toString();
+
+
+                try {
+                    Intent intent = new Intent(ACTION_VIEW, Uri.parse(url));
+                    // The URL should either launch directly in a non-browser app (if it's the
+                    // default), or in the disambiguation dialog.
+                    intent.addCategory(CATEGORY_BROWSABLE);
+                    intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_REQUIRE_NON_BROWSER);
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    // Only browser apps are available, or a browser is the default.
+                    // So you can open the URL directly in your app, for example in a
+                    // Custom Tab.
+
+                    Intent intent = new Intent(ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                recreate();
+            }
+        });
+    }
+
 }

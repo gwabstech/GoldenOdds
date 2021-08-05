@@ -24,11 +24,13 @@ import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
+import com.startapp.sdk.adsbase.StartAppAd;
+import com.startapp.sdk.adsbase.StartAppSDK;
 
 public class splashscreen extends AppCompatActivity {
 
    private boolean connected ;
-   private TextView Appvar ;
+
 
 
     @SuppressLint("SetTextI18n")
@@ -37,9 +39,12 @@ public class splashscreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
+        StartAppSDK.init(this, "209031346", false);
+        StartAppAd.disableSplash();
 
 
-        Appvar = findViewById(R.id.Appver);
+
+
 
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
@@ -52,15 +57,6 @@ public class splashscreen extends AppCompatActivity {
             alartdialog();
             connected = false;
 
-        try {
-            PackageInfo pInfo = this.getPackageManager().getPackageInfo(this.getPackageName(), 0);
-            String version = pInfo.versionName;
-            int verCode = pInfo.versionCode;
-
-            Appvar.setText(version + " " + verCode);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
 
 
     }
@@ -75,7 +71,7 @@ public class splashscreen extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        }, 5000);
+        }, 2000);
 
     }
     public void alartdialog(){

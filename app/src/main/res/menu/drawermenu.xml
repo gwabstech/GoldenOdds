@@ -8,7 +8,6 @@
         android:visible="false"
         android:title="@string/live_score" />
 
-
     <item
         android:id="@+id/prevGames"
         android:title="@string/previous_vip_games" />
@@ -21,6 +20,8 @@
     <item
         android:id="@+id/Exit"
         android:title="@string/exit" />
+
+
 
 
 </menu>

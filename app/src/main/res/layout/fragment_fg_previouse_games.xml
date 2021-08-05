@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="7"
+    android:weightSum="8"
     android:orientation="vertical"
     tools:context=".previouseGames">
 
@@ -12,12 +12,13 @@
         layout="@layout/vviptoolbar"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_weight="6.5"
-        android:layout_margin="3dp"
+        android:layout_weight="7.9"
         android:id="@+id/recyclerview_prv"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="3dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
+
+    <!--
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
@@ -29,6 +30,10 @@
         ads:adSize="BANNER"
         ads:adUnitId="@string/PreviuseBannerId">
     </com.google.android.gms.ads.AdView>
+    -->
+
+    <include
+        layout="@layout/melbetbanner"/>
 
 
 </LinearLayout>
