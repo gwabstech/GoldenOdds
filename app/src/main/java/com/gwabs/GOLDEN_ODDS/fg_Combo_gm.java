@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 public class fg_Combo_gm extends Fragment {
 
-    private ImageButton imageButton;
+    private AdView adView;
 
     DatabaseReference myreff;
 
@@ -49,8 +49,6 @@ public class fg_Combo_gm extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_fg__combo_gm, container, false);
-
-        imageButton = view.findViewById(R.id.melBetBanner1);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview5);
         LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -74,32 +72,19 @@ public class fg_Combo_gm extends Fragment {
         final String Sunan = "combo";
 
         myreff = FirebaseDatabase.getInstance().getReference();
+
         home.getDataFromFirebase(Sunan,massagelist,recyclerView,myAdapter,myreff);
 
-        imageButton.setOnClickListener(v -> myAffiliated());
+
+
+        adView = view.findViewById(R.id.adView5);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return  view;
     }
 
-    private void myAffiliated() {
-        String myLink = "https://refpakrtsb.top/L?tag=d_1099631m_18639c_&site=1099631&ad=18639";
-        try {
-            Intent intent = new Intent(ACTION_VIEW, Uri.parse(myLink));
-            // The URL should either launch directly in a non-browser app (if it's the
-            // default), or in the disambiguation dialog.
-            intent.addCategory(CATEGORY_BROWSABLE);
-            intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_REQUIRE_NON_BROWSER);
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            // Only browser apps are available, or a browser is the default.
-            // So you can open the URL directly in your app, for example in a
-            // Custom Tab.
 
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myLink));
-            startActivity(browserIntent);
-
-        };
-    }
 
 
 }

@@ -33,7 +33,7 @@
     -->
 
     <include
-        layout="@layout/melbetbanner"/>
+        layout="@layout/onexbetbaner"/>
 
 
 </LinearLayout>

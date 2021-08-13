@@ -17,22 +17,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".LoginAndSignUp"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:exported="true" />
+        <activity
             android:name=".previouseGames"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
-            android:name=".HOME"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
+            android:name=".HOME"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".splashscreen"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            tools:ignore="LockedOrientationActivity">
+            tools:ignore="IntentFilterExportedReceiver,LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

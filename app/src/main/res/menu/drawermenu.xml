@@ -3,24 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <item
-        android:id="@+id/LiveScore"
-        android:visible="false"
-        android:title="@string/live_score" />
+    <item android:title="@string/bookmakers_partners">
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/Melbet"
+                    android:title="@string/melbet" />
+                <item
+                    android:id="@+id/onexbet"
+                    android:title="@string/_1xbet" />
 
-    <item
-        android:id="@+id/prevGames"
-        android:title="@string/previous_vip_games" />
+            </group>
+        </menu>
+    </item>
 
-    <item
-        android:id="@+id/Share_App"
-        android:title="@string/share_app" />
+    <item android:title="Others">
+        <menu>
+            <group >
+
+                <item
+                    android:id="@+id/LiveScore"
+                    android:visible="false"
+                    android:title="@string/live_score" />
+
+                <item
+
+                    android:id="@+id/prevGames"
+                    android:title="@string/previous_vip_games" />
+
+                <item
+
+                    android:id="@+id/Share_App"
+                    android:title="@string/share_app" />
+
+                <item
+                    android:id="@+id/LogOut"
+                    android:title="Logout"/>
+
+                <item
+                    android:id="@+id/Exit"
+                    android:title="@string/exit" />
 
 
-    <item
-        android:id="@+id/Exit"
-        android:title="@string/exit" />
+            </group>
+        </menu>
 
+    </item>
 
 
 

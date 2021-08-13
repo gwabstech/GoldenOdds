@@ -24,6 +24,8 @@ import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.OnSuccessListener;
 import com.google.android.play.core.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.startapp.sdk.adsbase.StartAppAd;
 import com.startapp.sdk.adsbase.StartAppSDK;
 
@@ -32,12 +34,19 @@ public class splashscreen extends AppCompatActivity {
    private boolean connected ;
 
 
+    private FirebaseAuth mAuth;
+
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
+
+
+// ...
+// Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         StartAppSDK.init(this, "209031346", false);
         StartAppAd.disableSplash();
@@ -50,7 +59,7 @@ public class splashscreen extends AppCompatActivity {
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
             //we are connected to a network
-            splash();
+
             connected = true;
         }
         else
@@ -67,13 +76,14 @@ public class splashscreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(splashscreen.this,HOME.class);
+                Intent i = new Intent(splashscreen.this,LoginAndSignUp.class);
                 startActivity(i);
                 finish();
             }
         }, 2000);
 
     }
+
     public void alartdialog(){
       final AlertDialog.Builder builder = new AlertDialog.Builder(this);
       builder.setTitle("No Internet Connection");
@@ -90,7 +100,16 @@ public class splashscreen extends AppCompatActivity {
   }
 
 
-
-
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Intent intent = new Intent(getApplicationContext(),HOME.class);
+            startActivity(intent);
+            finish();
+        }else{
+            splash();
+        }
+    }
 }

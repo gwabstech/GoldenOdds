@@ -5,29 +5,28 @@ import static android.content.Intent.CATEGORY_BROWSABLE;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_REQUIRE_NON_BROWSER;
 
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -48,15 +47,10 @@ public class previouseGames extends AppCompatActivity {
         title.setTextSize(18);
         title.setText(titlee);
 
-        ImageButton imageButton = findViewById(R.id.melBetBanner1);
+        ImageButton imageButton = findViewById(R.id.onexBetBanner1);
 
 
-        clickBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        clickBack.setOnClickListener(v -> onBackPressed());
 
         // firebase
         HOME home = new HOME();
@@ -71,19 +65,17 @@ public class previouseGames extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myAffiliated();
+                AffiliateMarketing afm = new AffiliateMarketing();
+                show_PromoCodeDialog(afm.getOnebetPromocode(),afm.getOneXbetmessage(),afm.getOnexbetTitle(),afm.getOnexbetAfLink());
             }
         });
 
-
-        ;
-
     }
 
-    private void myAffiliated() {
-        String myLink = "https://refpakrtsb.top/L?tag=d_1099631m_18639c_&site=1099631&ad=18639";
+    private void myAffiliated(String aflink) {
+
         try {
-            Intent intent = new Intent(ACTION_VIEW, Uri.parse(myLink));
+            Intent intent = new Intent(ACTION_VIEW, Uri.parse(aflink));
             // The URL should either launch directly in a non-browser app (if it's the
             // default), or in the disambiguation dialog.
             intent.addCategory(CATEGORY_BROWSABLE);
@@ -94,10 +86,56 @@ public class previouseGames extends AppCompatActivity {
             // So you can open the URL directly in your app, for example in a
             // Custom Tab.
 
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myLink));
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(aflink));
             startActivity(browserIntent);
 
         }
+    }
+
+
+    @SuppressLint("ResourceAsColor")
+    public void show_PromoCodeDialog(String promoCode, String message, String Title, String aflink) {
+
+
+        AlertDialog.Builder builder
+                = new AlertDialog.Builder(this);
+        builder.setTitle(Title);
+
+        final View customLayout
+                = getLayoutInflater()
+                .inflate(
+                        R.layout.afliate_layout,
+                        null);
+        builder.setView(customLayout);
+        builder.setCancelable(true);
+        TextView msg = customLayout.findViewById(R.id.ALMessage);
+        LinearLayout copyPromocod = customLayout.findViewById(R.id.CopyPromocode);
+
+        msg.setText(message);
+        copyPromocod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager)
+                        getSystemService(getApplicationContext().CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("simple text", promoCode);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getApplicationContext(),"Promo code copied",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        builder.setPositiveButton("Proceed", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                myAffiliated(aflink);
+            }
+        });
+
+        AlertDialog dialog
+                = builder.create();
+        dialog.show();
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialogbg);
+
     }
 
 

@@ -15,12 +15,22 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:scaleType="fitXY"
             android:id="@+id/profile_logoImg"
             android:src="@drawable/aa"
             android:contentDescription="@string/todo" />
 
+        <TextView
+            android:id="@+id/TxtEmail"
+            android:layout_width="match_parent"
+            android:textColor="#044507"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:padding="5dp"
+            android:textAlignment="center"
+            android:text="Example@gail.com"
+            android:layout_height="wrap_content"/>
 
 
     </LinearLayout>

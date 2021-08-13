@@ -3,20 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/drawable/botton12.xml" value="0.151953125" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/drawable/btnbg.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/drawable/dialogbg.xml" value="0.148828125" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/drawable/edtbg.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/drawable/ic_bet365logo.xml" value="0.151953125" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/drawable/ic_exit.xml" value="0.151953125" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/drawable/ic_melbet_logo.xml" value="0.151953125" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/activity_booking_code.xml" value="0.2" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/activity_login_and_sign_up.xml" value="0.18" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/activity_splashscreen.xml" value="0.22" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/activity_v_v_i_p.xml" value="0.25" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/admobanner.xml" value="0.13984375" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/afliate_layout.xml" value="0.16" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/bookingviewholder.xml" value="0.22" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/confirmpassword.xml" value="0.25" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/custumdialogPreset.xml" value="0.13" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/custumdialogpreset.xml" value="0.15" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/custumtxv.xml" value="0.13671875" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/drawer_header.xml" value="0.18" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/fghome_win.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/fragment_f_g_b_t_t_s.xml" value="0.16" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/fragment_fg__combo_gm.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/fragment_fg_awey__win.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/fragment_fg_o2_5.xml" value="0.18645833333333334" />
-        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/fragment_fg_previouse_games.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/fragment_fg_previouse_games.xml" value="0.11" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/fragment_tab_layoutfragment.xml" value="0.13671875" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/home1.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/itemsviews.xml" value="0.25" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/main_toolber.xml" value="0.13984375" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/melbetbanner.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/onexbetbaner.xml" value="0.13671875" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/layout/vviptoolbar.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/menu/drawermenu.xml" value="0.18" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Golden_odd_Pro/app/src/main/res/menu/menu1.xml" value="0.5" />

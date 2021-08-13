@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">GOLDEN ODDS</string>
-
-
     <string name="sign_up1">SIGN UP</string>
     <string name="enter_your_email1">Enter your Email..</string>
     <string name="todo1">TODO</string>
@@ -9,7 +7,6 @@
     <string name="todo11">TODO</string>
     <string name="confirm_your_password">Confirm your password..</string>
     <string name="sign_up">Sign Up</string>
-    <string name="you_have_an_existing_account">You have an existing account</string>
     <string name="sign_in11">SIGN IN</string>
     <string name="sign_in22">SIGN IN</string>
     <string name="enter_your_email22">Enter your Email..</string>
@@ -37,15 +34,21 @@
     <string name="close">close</string>
     <string name="_80_winning_rate">80% winning rate</string>
     <string name="app_version">App version</string>
-    <string name="Add_Unit_Id_Intesetiial">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="Add_Unit_Id_Intesetiial">ca-app-pub-6125586393387357/6742853505</string>
 
     <string name="vip_tips">VIP GROUP</string>
     <string name="live_score">Live Score</string>
-    <string name="previous_vip_games">Previous Vip Games</string>
+    <string name="previous_vip_games">Previous Games</string>
     <string name="share_app">Share GoldenOdds</string>
     <string name="exit">Exit</string>
     <string name="stack_with_melbet">Stack With Melbet</string>
     <string name="powered_by_gwabstech">Powered by GWABSTECH</string>
+    <string name="melbet">Melbet</string>
+    <string name="_1xbet">1xBet</string>
+    <string name="bookmakers_partners">Bookmakers partners</string>
+    <string name="ComboBannerId">ca-app-pub-6125586393387357/9027580960</string>
+    <string name="HomeBannerId">ca-app-pub-6125586393387357/6401417623</string>
+    <string name="BTTSBannerId">ca-app-pub-6125586393387357/7188240906</string>
 
 
 </resources>
