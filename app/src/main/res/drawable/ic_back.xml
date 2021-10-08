@@ -1,3 +1,10 @@
+<!--
+  ~ Copyright (c)
+  ~   * Created by Gwabstech on 10/8/21, 3:24 PM
+  ~   * Copyright (c) 2021 . All rights reserved.
+  ~   * Last modified 10/8/21, 3:24 PM
+  -->
+
 <vector android:height="32dp" android:tint="?attr/colorControlNormal"
     android:viewportHeight="24" android:viewportWidth="24"
     android:width="32dp" xmlns:android="http://schemas.android.com/apk/res/android">

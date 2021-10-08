@@ -1,3 +1,10 @@
+/*
+ * Copyright (c)
+ *   * Created by Gwabstech on 10/8/21, 3:24 PM
+ *   * Copyright (c) 2021 . All rights reserved.
+ *   * Last modified 10/8/21, 3:24 PM
+ */
+
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'

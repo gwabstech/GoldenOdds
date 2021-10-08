@@ -1,5 +1,12 @@
 #!/usr/bin/env sh
 
+#
+# Copyright (c)
+#   * Created by Gwabstech on 10/8/21, 3:24 PM
+#   * Copyright (c) 2021 . All rights reserved.
+#   * Last modified 10/8/21, 3:22 PM
+#
+
 ##############################################################################
 ##
 ##  Gradle start up script for UN*X
