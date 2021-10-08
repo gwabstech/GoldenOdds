@@ -49,6 +49,7 @@
     <string name="ComboBannerId">ca-app-pub-6125586393387357/9027580960</string>
     <string name="HomeBannerId">ca-app-pub-6125586393387357/6401417623</string>
     <string name="BTTSBannerId">ca-app-pub-6125586393387357/7188240906</string>
+    <string name="vip_games">VIP GAMES</string>
 
 
 </resources>
