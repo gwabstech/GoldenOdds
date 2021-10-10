@@ -6,8 +6,7 @@
   ~   * Last modified 10/8/21, 3:24 PM
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <item android:title="@string/bookmakers_partners">
@@ -24,7 +23,7 @@
         </menu>
     </item>
 
-    <item android:title="Others">
+    <item android:title="@string/others">
         <menu>
             <group >
 
@@ -33,10 +32,11 @@
                     android:visible="false"
                     android:title="@string/live_score" />
 
-                <item
 
-                    android:id="@+id/prevGames"
-                    android:title="@string/previous_vip_games" />
+
+                <item
+                    android:id="@+id/PrivacyPolicy"
+                    android:title="@string/privacy_policy"/>
 
                 <item
 
@@ -45,7 +45,7 @@
 
                 <item
                     android:id="@+id/LogOut"
-                    android:title="Logout"/>
+                    android:title="@string/logout"/>
 
                 <item
                     android:id="@+id/Exit"

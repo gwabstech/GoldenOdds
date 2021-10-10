@@ -1,11 +1,11 @@
 /*
  * Copyright (c)
- *   * Created by Gwabstech on 10/8/21, 3:24 PM
+ *   * Created by Gwabstech on 10/8/21, 6:06 PM
  *   * Copyright (c) 2021 . All rights reserved.
  *   * Last modified 10/8/21, 3:24 PM
  */
 
-package com.gwabs.GOLDEN_ODDS;
+package com.gwabs.GOLDEN_ODDS.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,18 +16,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gwabs.GOLDEN_ODDS.Model.Massage;
+import com.gwabs.GOLDEN_ODDS.R;
+import com.gwabs.GOLDEN_ODDS.clickListener;
+
 import java.util.ArrayList;
 
 @SuppressWarnings("ALL")
 public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
 
+    public com.gwabs.GOLDEN_ODDS.clickListener clickListener;
     public Context mContext;
     // --Commented out by Inspection (10/15/2020 3:20 AM):private static final String Tag= "RecylerView";
     // --Commented out by Inspection (10/15/2020 3:20 AM):final Context mContext;
     final ArrayList<Massage> MassageList;
-    public myAdapter(Context mContext, ArrayList<Massage> massageList) {
+    public myAdapter(Context mContext, ArrayList<Massage> massageList,clickListener clickListener) {
         this.mContext = mContext;
         MassageList = massageList;
+        this.clickListener = clickListener;
     }
 
     @NonNull
@@ -50,6 +56,13 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
         holder.status.setText(MassageList.get(position).getStatus());
         holder.country.setText(MassageList.get(position).getCountry());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                clickListener.onItemClick(v,holder.getAdapterPosition());
+            }
+        });
 
 
 

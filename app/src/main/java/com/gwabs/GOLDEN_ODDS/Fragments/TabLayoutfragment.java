@@ -1,11 +1,11 @@
 /*
  * Copyright (c)
- *   * Created by Gwabstech on 10/8/21, 3:24 PM
+ *   * Created by Gwabstech on 10/8/21, 6:09 PM
  *   * Copyright (c) 2021 . All rights reserved.
  *   * Last modified 10/8/21, 3:24 PM
  */
 
-package com.gwabs.GOLDEN_ODDS;
+package com.gwabs.GOLDEN_ODDS.Fragments;
 
 import android.os.Bundle;
 
@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
+import com.gwabs.GOLDEN_ODDS.Adapters.tabAdapter;
+import com.gwabs.GOLDEN_ODDS.R;
 
 
 public class TabLayoutfragment extends Fragment {
@@ -24,7 +26,7 @@ public class TabLayoutfragment extends Fragment {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    private tabAdapter tabAdapter;
+    private com.gwabs.GOLDEN_ODDS.Adapters.tabAdapter tabAdapter;
 
     public TabLayoutfragment() {
         // Required empty public constructor
@@ -46,7 +48,7 @@ public class TabLayoutfragment extends Fragment {
         try {
             viewPager=view.findViewById(R.id.viewpager);
             tabLayout=view.findViewById(R.id.tablayout);
-            tabAdapter = new tabAdapter(getActivity().getSupportFragmentManager(),5);
+            tabAdapter = new tabAdapter(requireActivity().getSupportFragmentManager(),5);
             viewPager.setAdapter(tabAdapter);
 
             tabLayout.setupWithViewPager(viewPager,true);

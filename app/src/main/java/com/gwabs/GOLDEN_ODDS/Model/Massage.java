@@ -1,11 +1,11 @@
 /*
  * Copyright (c)
- *   * Created by Gwabstech on 10/8/21, 3:24 PM
+ *   * Created by Gwabstech on 10/8/21, 6:07 PM
  *   * Copyright (c) 2021 . All rights reserved.
  *   * Last modified 10/8/21, 3:24 PM
  */
 
-package com.gwabs.GOLDEN_ODDS;
+package com.gwabs.GOLDEN_ODDS.Model;
 
 import android.app.Activity;
 import android.content.Context;

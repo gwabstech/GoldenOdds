@@ -16,6 +16,7 @@ import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -56,6 +57,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.gwabs.GOLDEN_ODDS.Adapters.myAdapter;
+import com.gwabs.GOLDEN_ODDS.Fragments.TabLayoutfragment;
+import com.gwabs.GOLDEN_ODDS.Model.AffiliateMarketing;
+import com.gwabs.GOLDEN_ODDS.Model.Massage;
+import com.sanojpunchihewa.updatemanager.UpdateManager;
+import com.sanojpunchihewa.updatemanager.UpdateManagerConstant;
 import com.startapp.sdk.adsbase.StartAppAd;
 
 import org.jetbrains.annotations.NotNull;
@@ -75,8 +82,10 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     private FirebaseAuth mAuth;
+    UpdateManager mUpdateManager;
 
     // ADS VARIABLES
+
     public InterstitialAd mInterstitialAd;
     private StartAppAd startAppAd ;
     private DatabaseReference myreff;
@@ -143,6 +152,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         }, 60, 120, TimeUnit.SECONDS);
 
 
+        InAppUpdate();
 
 
     }
@@ -183,13 +193,6 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
             case R.id.LiveScore:
                 Toast.makeText(getApplicationContext(),
                         "Coming soon",Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.prevGames:
-                Intent intent7 = new Intent(getApplicationContext(),previouseGames.class);
-                startActivity(intent7);
-                drawerLayout.closeDrawers();
-                showAdds();
                 break;
 
             case R.id.Share_App:
@@ -296,7 +299,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
     public void getDataFromFirebase(String sunandata ,
                                     ArrayList<Massage> Massagelist,
-                                    RecyclerView recyclerView ,myAdapter myAdapter,DatabaseReference myreff){
+                                    RecyclerView recyclerView , myAdapter myAdapter, DatabaseReference myreff){
 
 
 
@@ -340,7 +343,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    void ClearAll(ArrayList<Massage> Massagelist, myAdapter myAdapter){
+    public void ClearAll(ArrayList<Massage> Massagelist, myAdapter myAdapter){
         if (Massagelist != null){
             Massagelist.clear();
 
@@ -476,5 +479,24 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialogbg);
 
     }
+    public void InAppUpdate(){
+        mUpdateManager = UpdateManager.Builder(this);
+
+        mUpdateManager.addUpdateInfoListener(new UpdateManager.UpdateInfoListener() {
+            @Override
+            public void onReceiveVersionCode(final int code) {
+              //  txtAvailableVersion.setText(String.valueOf(code));
+            }
+
+            @Override
+            public void onReceiveStalenessDays(final int days) {
+               // txtStalenessDays.setText(String.valueOf(days));
+            }
+        });
+
+        mUpdateManager = UpdateManager.Builder(this).mode(UpdateManagerConstant.IMMEDIATE);
+        mUpdateManager.start();
+    }
+
 
 }

@@ -11,38 +11,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent"
     android:weightSum="8"
-    tools:context=".fgO2_5">
+    android:layout_height="match_parent"
+    tools:context=".Fragments.FgMultiGoals">
 
 
 
     <androidx.recyclerview.widget.RecyclerView
 
         android:layout_weight="7.9"
-        android:id="@+id/recyclerview4"
+        android:id="@+id/recyclerview2"
         android:layout_marginBottom="3dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"/>
 
+
     <!--
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView6"
+        android:id="@+id/adView03"
+        android:layout_marginTop="5dp"
         android:layout_weight="0.2"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/Over2BannerID">
+        ads:adUnitId="@string/AweyBannnerId">
     </com.google.android.gms.ads.AdView>
     -->
-
     <com.startapp.sdk.ads.banner.Banner
         android:id="@+id/startAppBanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true" />
-
 </LinearLayout>

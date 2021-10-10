@@ -27,11 +27,6 @@
             android:name=".LoginAndSignUp"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" />
-        <activity
-            android:name=".previouseGames"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            tools:ignore="LockedOrientationActivity" />
 
         <activity
             android:configChanges="orientation"
