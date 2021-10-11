@@ -39,7 +39,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.gwabs.GOLDEN_ODDS.HOME;
+import com.gwabs.GOLDEN_ODDS.Activities.HOME;
 import com.gwabs.GOLDEN_ODDS.Model.AffiliateMarketing;
 import com.gwabs.GOLDEN_ODDS.Model.Massage;
 import com.gwabs.GOLDEN_ODDS.R;

@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c)
-  ~   * Created by Gwabstech on 10/8/21, 3:24 PM
-  ~   * Copyright (c) 2021 . All rights reserved.
-  ~   * Last modified 10/8/21, 3:24 PM
-  -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gwabs.GOLDEN_ODDS">
@@ -24,19 +17,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginAndSignUp"
+            android:name=".Activities.AboutUs"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:parentActivityName=".Activities.HOME"
             android:exported="true" />
-
         <activity
+            android:name=".Activities.Privacypolicy"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".Activities.LoginAndSignUp"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".Activities.HOME"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
-            android:name=".HOME"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
-            android:name=".splashscreen"
+            android:name=".Activities.splashscreen"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"

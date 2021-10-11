@@ -1,11 +1,11 @@
 /*
  * Copyright (c)
- *   * Created by Gwabstech on 10/8/21, 3:24 PM
+ *   * Created by Gwabstech on 10/11/21, 4:32 PM
  *   * Copyright (c) 2021 . All rights reserved.
- *   * Last modified 10/8/21, 3:22 PM
+ *   * Last modified 10/11/21, 4:21 PM
  */
 
-package com.gwabs.GOLDEN_ODDS;
+package com.gwabs.GOLDEN_ODDS.Activities;
 
 import static android.content.Intent.ACTION_VIEW;
 import static android.content.Intent.CATEGORY_BROWSABLE;
@@ -16,8 +16,6 @@ import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -61,6 +59,7 @@ import com.gwabs.GOLDEN_ODDS.Adapters.myAdapter;
 import com.gwabs.GOLDEN_ODDS.Fragments.TabLayoutfragment;
 import com.gwabs.GOLDEN_ODDS.Model.AffiliateMarketing;
 import com.gwabs.GOLDEN_ODDS.Model.Massage;
+import com.gwabs.GOLDEN_ODDS.R;
 import com.sanojpunchihewa.updatemanager.UpdateManager;
 import com.sanojpunchihewa.updatemanager.UpdateManagerConstant;
 import com.startapp.sdk.adsbase.StartAppAd;
@@ -75,8 +74,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class HOME extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
-
-    private DrawerLayout drawerLayout;
 
     // FRAGMENT CLASS VERIABLES
     FragmentManager fragmentManager;
@@ -96,6 +93,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home1);
+        InAppUpdate();
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -108,7 +106,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
         // UI INITIALIZATION
         Toolbar toolbar = findViewById(R.id.toolbar);
-        drawerLayout = findViewById(R.id.drawerLayout);
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         NavigationView navView = findViewById(R.id.navView);
         setSupportActionBar(toolbar);
 
@@ -134,10 +132,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
         afmData = new AffiliateMarketing();
 
-        mmelbetbanner.setOnClickListener(v -> {
-
-            show_PromoCodeDialog(afmData.getMelbetPromocode(),afmData.getMelbetmessage(),afmData.getMelbetTitle(),afmData.getMelbetAfLink());
-        });
+        mmelbetbanner.setOnClickListener(v -> show_PromoCodeDialog(afmData.getMelbetPromocode(),afmData.getMelbetmessage(),afmData.getMelbetTitle(),afmData.getMelbetAfLink()));
 
         // VARIABLLE DECLIRATION
 
@@ -152,7 +147,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         }, 60, 120, TimeUnit.SECONDS);
 
 
-        InAppUpdate();
+
 
 
     }
@@ -194,6 +189,10 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
                 Toast.makeText(getApplicationContext(),
                         "Coming soon",Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.PrivacyPolicy:
+                Intent intent = new Intent(this,Privacypolicy.class);
+                startActivity(intent);
+                break;
 
             case R.id.Share_App:
                // Toast.makeText(this,"i was clicked",Toast.LENGTH_LONG).show();
@@ -207,12 +206,12 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
                 mAuth.signOut();
                 scheduler.shutdown();
-                Intent intent = new Intent(this,LoginAndSignUp.class);
-                startActivity(intent);
+                Intent intent3 = new Intent(this,LoginAndSignUp.class);
+                startActivity(intent3);
                 showAdds();
                 this.finish();
 
-
+                break;
 
             case R.id.Exit:
                 finishAffinity();
@@ -238,6 +237,10 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
             } catch (NullPointerException nullPointerException) {
                 Log.i("stack", nullPointerException.toString());
             }
+        }
+        if (item.getItemId() == R.id.Aboutus) {
+            Intent i = new Intent(this, AboutUs.class);
+            startActivity(i);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -352,9 +355,6 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
             }
 
 
-            Massagelist = new ArrayList<>();
-        } else {
-            Massagelist = new ArrayList<>();
         }
     }
 
@@ -388,6 +388,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     @Override
     protected void onResume() {
         super.onResume();
+
 
     }
 
@@ -454,24 +455,17 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         LinearLayout copyPromocod = customLayout.findViewById(R.id.CopyPromocode);
 
         msg.setText(message);
-        copyPromocod.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ClipboardManager clipboard = (ClipboardManager)
-                        getSystemService(getApplicationContext().CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("simple text", promoCode);
-                clipboard.setPrimaryClip(clip);
-                Toast.makeText(getApplicationContext(),"Promo code copied",Toast.LENGTH_SHORT).show();
+        copyPromocod.setOnClickListener(v -> {
+            getApplicationContext();
+            ClipboardManager clipboard = (ClipboardManager)
+                    getSystemService(CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("simple text", promoCode);
+            clipboard.setPrimaryClip(clip);
+            Toast.makeText(getApplicationContext(),"Promo code copied",Toast.LENGTH_SHORT).show();
 
-            }
         });
 
-        builder.setPositiveButton("Proceed", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                myAffiliated(aflink);
-            }
-        });
+        builder.setPositiveButton("Proceed", (dialog, which) -> myAffiliated(aflink));
 
         AlertDialog dialog
                 = builder.create();
@@ -480,23 +474,13 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
     }
     public void InAppUpdate(){
-        mUpdateManager = UpdateManager.Builder(this);
+       // mUpdateManager = UpdateManager.Builder(this);
 
-        mUpdateManager.addUpdateInfoListener(new UpdateManager.UpdateInfoListener() {
-            @Override
-            public void onReceiveVersionCode(final int code) {
-              //  txtAvailableVersion.setText(String.valueOf(code));
-            }
-
-            @Override
-            public void onReceiveStalenessDays(final int days) {
-               // txtStalenessDays.setText(String.valueOf(days));
-            }
-        });
 
         mUpdateManager = UpdateManager.Builder(this).mode(UpdateManagerConstant.IMMEDIATE);
         mUpdateManager.start();
     }
+
 
 
 }

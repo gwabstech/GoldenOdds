@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c)
+  ~   * Created by Gwabstech on 10/11/21, 11:40 AM
+  ~   * Copyright (c) 2021 . All rights reserved.
+  ~   * Last modified 10/11/21, 11:40 AM
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Privacypolicy">
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/main_toolber" />
+
+    <im.delight.android.webview.AdvancedWebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+
+</LinearLayout>

@@ -62,10 +62,14 @@ dependencies {
     implementation 'com.google.android.gms:play-services-base:17.6.0'
     implementation 'com.google.android.gms:play-services-ads:20.4.0'
     implementation 'com.github.SanojPunchihewa:InAppUpdater:1.0.5'
+    implementation 'com.github.delight-im:Android-AdvancedWebView:v3.2.1'
+    implementation 'io.github.medyo:android-about-page:2.0.0'
 
-   
 
-    
+
+
+
+
 
 }
 

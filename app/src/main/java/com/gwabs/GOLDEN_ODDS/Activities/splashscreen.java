@@ -1,38 +1,27 @@
 /*
  * Copyright (c)
- *   * Created by Gwabstech on 10/8/21, 3:24 PM
+ *   * Created by Gwabstech on 10/11/21, 4:32 PM
  *   * Copyright (c) 2021 . All rights reserved.
- *   * Last modified 10/8/21, 3:24 PM
+ *   * Last modified 10/11/21, 12:54 AM
  */
 
-package com.gwabs.GOLDEN_ODDS;
+package com.gwabs.GOLDEN_ODDS.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.play.core.appupdate.AppUpdateInfo;
-import com.google.android.play.core.appupdate.AppUpdateManager;
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
-import com.google.android.play.core.install.model.AppUpdateType;
-import com.google.android.play.core.install.model.UpdateAvailability;
-import com.google.android.play.core.tasks.OnSuccessListener;
-import com.google.android.play.core.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.gwabs.GOLDEN_ODDS.R;
 import com.startapp.sdk.adsbase.StartAppAd;
 import com.startapp.sdk.adsbase.StartAppSDK;
 
@@ -57,13 +46,6 @@ public class splashscreen extends AppCompatActivity {
 
         StartAppSDK.init(this, "209031346", false);
         StartAppAd.disableSplash();
-
-
-
-
-
-
-
 
 
     }
@@ -108,18 +90,20 @@ public class splashscreen extends AppCompatActivity {
             //we are connected to a network
 
             connected = true;
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            if(currentUser != null){
+                Intent intent = new Intent(getApplicationContext(),HOME.class);
+                startActivity(intent);
+                finish();
+            }else{
+                splash();
+            }
         }
-        else
+        else {
             alartdialog();
-        connected = false;
+            connected = false;
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            Intent intent = new Intent(getApplicationContext(),HOME.class);
-            startActivity(intent);
-            finish();
-        }else{
-            splash();
         }
+
     }
 }

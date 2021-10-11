@@ -13,7 +13,7 @@
     android:orientation="vertical"
     android:weightSum="5"
     android:background="@drawable/loginandsignup"
-    tools:context=".LoginAndSignUp">
+    tools:context=".Activities.LoginAndSignUp">
 
 
 

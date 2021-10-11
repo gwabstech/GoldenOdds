@@ -10,5 +10,5 @@ package com.gwabs.GOLDEN_ODDS;
 import android.view.View;
 
 public interface clickListener {
-    public  void onItemClick(View itemView, int position);
+    void onItemClick(View itemView, int position);
 }

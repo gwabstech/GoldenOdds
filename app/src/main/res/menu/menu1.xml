@@ -6,11 +6,19 @@
   ~   * Last modified 10/8/21, 3:24 PM
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/VipGms"
         app:showAsAction="always"
-        android:title="@string/vip_games" />
+        android:icon="@mipmap/whatsapplogo"
+        android:title="@string/vip_games"
+        tools:ignore="AlwaysShowAction" />
+
+    <item
+        android:id="@+id/Aboutus"
+        app:showAsAction="never"
+        android:title="@string/about_us" />
 </menu>
