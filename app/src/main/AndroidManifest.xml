@@ -39,6 +39,7 @@
             android:name=".Activities.splashscreen"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
+            android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             tools:ignore="IntentFilterExportedReceiver,LockedOrientationActivity">
             <intent-filter>

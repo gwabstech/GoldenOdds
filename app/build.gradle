@@ -10,13 +10,13 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.gwabs.navdrawerexample"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 8
         versionName "Gold"
 
@@ -45,8 +45,8 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.play:core:1.10.2'
@@ -58,9 +58,9 @@ dependencies {
     implementation 'com.startapp:inapp-sdk:4.8.+'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.firebase:firebase-database:20.0.2'
-    implementation 'com.google.android.gms:play-services-base:17.6.0'
-    implementation 'com.google.android.gms:play-services-ads:20.4.0'
+    implementation 'com.google.firebase:firebase-database:20.0.3'
+    implementation 'com.google.android.gms:play-services-base:18.0.1'
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
     implementation 'com.github.SanojPunchihewa:InAppUpdater:1.0.5'
     implementation 'com.github.delight-im:Android-AdvancedWebView:v3.2.1'
     implementation 'io.github.medyo:android-about-page:2.0.0'

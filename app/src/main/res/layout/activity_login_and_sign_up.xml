@@ -6,120 +6,125 @@
   ~   * Last modified 10/8/21, 3:22 PM
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="5"
-    android:background="@drawable/loginandsignup"
-    tools:context=".Activities.LoginAndSignUp">
+    tools:context=".Activities.LoginAndSignUp"
+    tools:ignore="SpeakableTextPresentCheck">
 
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_weight="1.5"
-        android:layout_height="0dp">
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
 
-    </RelativeLayout>
-
-
-    <LinearLayout
-
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="3.5"
-        android:layout_height="0dp">
-
+        <LinearLayout
+            android:id="@+id/aa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/aa"
+            android:orientation="vertical" />
 
 
         <LinearLayout
-            android:layout_marginTop="20dp"
+            android:layout_below="@+id/aa"
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/UserName"
-                android:background="@drawable/edtbg"
-                android:hint="Email"
-                android:paddingStart="8dp"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                android:textColorHint="#000"
-                android:inputType="textEmailAddress"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"/>
+                android:orientation="vertical"
+                android:layout_height="match_parent">
 
-            <EditText
-                android:background="@drawable/edtbg"
-               android:hint="Password"
-                android:id="@+id/password"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                android:paddingStart="8dp"
-                android:inputType="textPassword"
-                android:textColorHint="#000"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginEnd="40dp"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"/>
+                <EditText
+                    android:id="@+id/UserName"
+                    android:background="@drawable/edtbg"
+                    android:hint="Email"
+                    android:paddingStart="8dp"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:textColorHint="#000"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"/>
 
-
-
-            <Button
-
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center"
-                android:text="Login"
-                android:id="@+id/btnlgin"
-                android:background="@drawable/btnbg"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_marginStart="90dp"
-                android:layout_marginEnd="90dp"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:id="@+id/btnsignup"
-                android:background="@drawable/btnbg"
-                android:layout_gravity="center"
-                android:text="Sign Up"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="70dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="70dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                <EditText
+                    android:background="@drawable/edtbg"
+                    android:hint="Password"
+                    android:id="@+id/password"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    android:paddingStart="8dp"
+                    android:inputType="textPassword"
+                    android:textColorHint="#000"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"/>
 
 
 
-            <TextView
+                <Button
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:gravity="bottom"
-                android:textColor="#0E1B02"
-                android:id="@+id/TxtForgetPasword"
-                android:layout_margin="10dp"
-                android:text="Forget Password" />
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:text="Login"
+                    android:id="@+id/btnlgin"
+                    android:background="@drawable/btnbg"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="90dp"
+                    android:layout_marginEnd="90dp"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:id="@+id/btnsignup"
+                    android:background="@drawable/btnbg"
+                    android:layout_gravity="center"
+                    android:text="Sign Up"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:gravity="bottom"
+                    android:textColor="#0E1B02"
+                    android:id="@+id/TxtForgetPasword"
+                    android:layout_margin="10dp"
+                    android:text="Forget Password" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
-
-</LinearLayout>
+</ScrollView>

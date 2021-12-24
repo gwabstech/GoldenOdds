@@ -12,6 +12,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import com.gwabs.GOLDEN_ODDS.R;
 
 import mehdi.sakout.aboutpage.AboutPage;

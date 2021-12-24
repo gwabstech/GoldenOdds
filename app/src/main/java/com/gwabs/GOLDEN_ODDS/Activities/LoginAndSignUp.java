@@ -29,6 +29,7 @@ public class LoginAndSignUp extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private FirebaseAuth mAuth;
     ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,36 +46,41 @@ public class LoginAndSignUp extends AppCompatActivity {
 
         txtForgetPassword.setOnClickListener(this::onClick);
 
+
         btnLogin.setOnClickListener(v -> {
 
-            if (TextUtils.isEmpty(edtEmail.getText().toString()) || TextUtils.isEmpty(edtPassword.getText().toString())){
+            if (TextUtils.isEmpty(edtEmail.getText().toString())) {
 
-                Toast.makeText(getApplicationContext(),"please enter your email and password" ,Toast.LENGTH_SHORT).show();
-            }else if (TextUtils.isEmpty(edtEmail.getText().toString())&& TextUtils.isEmpty(edtPassword.getText().toString())){
+                edtEmail.setError("please enter your email");
 
-                Toast.makeText(getApplicationContext(),"Enter your user name and password to signU",Toast.LENGTH_SHORT).show();
-            }
-            else if (edtPassword.getText().length()<4 && !Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()) {
-                Toast.makeText(LoginAndSignUp.this, "Enter a Valid Email,"
-                        +"\nPassword should be more than 4 characters", Toast.LENGTH_SHORT).show();
-            }
-            else if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()){
-                Toast.makeText(LoginAndSignUp.this,"Enter Valid Email Address",Toast.LENGTH_SHORT).show();
-            }
-            else if (edtPassword.getText().length()<4){
-                Toast.makeText(LoginAndSignUp.this,"Password can't be less then 4 characters",Toast.LENGTH_SHORT).show();
-            }
-            else{
+            } else if (TextUtils.isEmpty(edtPassword.getText().toString())) {
 
-                String Email,password;
+                edtEmail.setError("please enter your password");
+
+            } else if (TextUtils.isEmpty(edtEmail.getText().toString()) && TextUtils.isEmpty(edtPassword.getText().toString())) {
+
+                edtEmail.setError("Enter your user name and password to signup");
+
+
+            } else if (edtPassword.getText().length() < 4) {
+
+                edtPassword.setError("Password should be more than 4 characters");
+
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()) {
+
+                edtEmail.setError("Enter a Valid Email");
+
+            } else {
+
+                String Email, password;
                 Email = edtEmail.getText().toString();
                 password = edtPassword.getText().toString();
-                progressDialog.setMessage(Email+" Please wait..."); // Setting Message
+                progressDialog.setMessage(Email + " Please wait..."); // Setting Message
                 progressDialog.setTitle("Logging"); // Setting Title
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
                 progressDialog.show(); // Display Progress Dialog
                 progressDialog.setCancelable(false);
-                SignInUser(Email,password);
+                SignInUser(Email, password);
             }
 
 
@@ -83,28 +89,19 @@ public class LoginAndSignUp extends AppCompatActivity {
 
         btnSignup.setOnClickListener(v -> {
 
-            if (TextUtils.isEmpty(edtEmail.getText().toString()) || TextUtils.isEmpty(edtPassword.getText().toString())){
+            if (TextUtils.isEmpty(edtEmail.getText().toString()) || TextUtils.isEmpty(edtPassword.getText().toString())) {
 
-                Toast.makeText(getApplicationContext(),"please enter your email and password" ,Toast.LENGTH_SHORT).show();
-            }
-            else if (TextUtils.isEmpty(edtEmail.getText().toString())&& TextUtils.isEmpty(edtPassword.getText().toString())){
+                Toast.makeText(getApplicationContext(), "please enter your email and password", Toast.LENGTH_SHORT).show();
+            } else if (TextUtils.isEmpty(edtEmail.getText().toString()) && TextUtils.isEmpty(edtPassword.getText().toString())) {
 
-                Toast.makeText(getApplicationContext(),"Enter your user name and password to Sign Up",Toast.LENGTH_SHORT).show();
-            }
-
-            else if (edtPassword.getText().length()<4 && !Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()){
-                Toast.makeText(LoginAndSignUp.this,"Enter a Valid Email,"+"\nPassword should be more than 4 characters",Toast.LENGTH_SHORT).show();
-            }
-
-            else if (edtPassword.getText().length()<4){
-                Toast.makeText(LoginAndSignUp.this,"Password can't be less then 4 characters",Toast.LENGTH_SHORT).show();
-            }
-
-            else if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()){
-                Toast.makeText(LoginAndSignUp.this,"Enter Valid Email Address",Toast.LENGTH_SHORT).show();
-            }
-
-            else{
+                Toast.makeText(getApplicationContext(), "Enter your user name and password to Sign Up", Toast.LENGTH_SHORT).show();
+            } else if (edtPassword.getText().length() < 4 && !Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()) {
+                Toast.makeText(LoginAndSignUp.this, "Enter a Valid Email," + "\nPassword should be more than 4 characters", Toast.LENGTH_SHORT).show();
+            } else if (edtPassword.getText().length() < 4) {
+                Toast.makeText(LoginAndSignUp.this, "Password can't be less then 4 characters", Toast.LENGTH_SHORT).show();
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()) {
+                Toast.makeText(LoginAndSignUp.this, "Enter Valid Email Address", Toast.LENGTH_SHORT).show();
+            } else {
                 confirmPassword();
             }
 
@@ -114,51 +111,50 @@ public class LoginAndSignUp extends AppCompatActivity {
     }
 
 
-    private void SignInUser(String Email,String Password){
+    private void SignInUser(String Email, String Password) {
 
-        mAuth.signInWithEmailAndPassword(Email,Password)
+        mAuth.signInWithEmailAndPassword(Email, Password)
                 .addOnCompleteListener(task -> {
 
 
-                        if (task.isSuccessful()){
-                            Toast.makeText(LoginAndSignUp.this,"Login Successfully",Toast.LENGTH_SHORT).show();
-                            progressDialog.dismiss();
-                            Intent intent = new Intent(LoginAndSignUp.this,HOME.class);
-                            startActivity(intent);
-                            finish();
-
-                        }else{
-                            progressDialog.dismiss();
-                         
-
-                        }
-
-
-
-                }).addOnFailureListener(e -> Toast.makeText(LoginAndSignUp.this,"Login failed "+e.getMessage(),Toast.LENGTH_SHORT).show());
-
-    }
-
-
-    private void SignUpNewUser(String Email,String Password){
-
-        mAuth.createUserWithEmailAndPassword(Email,Password)
-                .addOnCompleteListener(task -> {
-
-                    if (task.isSuccessful()){
-                        Toast.makeText(getApplicationContext(),"Signup Successfully",Toast.LENGTH_SHORT).show();
+                    if (task.isSuccessful()) {
+                        Toast.makeText(LoginAndSignUp.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
-                        Intent intent = new Intent(getApplicationContext(),HOME.class);
+                        Intent intent = new Intent(LoginAndSignUp.this, HOME.class);
                         startActivity(intent);
                         finish();
-                    }else {
-                      //  Toast.makeText(getApplicationContext(),task.getException().toString(),Toast.LENGTH_SHORT).show();
+
+                    } else {
                         progressDialog.dismiss();
+
+
                     }
-                }).addOnFailureListener(e -> Toast.makeText(LoginAndSignUp.this,"failed to Signup "+e.getMessage(),Toast.LENGTH_SHORT).show());
+
+
+                }).addOnFailureListener(e -> Toast.makeText(LoginAndSignUp.this, "Login failed " + e.getMessage(), Toast.LENGTH_SHORT).show());
+
     }
 
-    private  void sendPasswordRequest(){
+
+    private void SignUpNewUser(String Email, String Password) {
+
+        mAuth.createUserWithEmailAndPassword(Email, Password)
+                .addOnCompleteListener(task -> {
+
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "Signup Successfully", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        Intent intent = new Intent(getApplicationContext(), HOME.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        //  Toast.makeText(getApplicationContext(),task.getException().toString(),Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
+                }).addOnFailureListener(e -> Toast.makeText(LoginAndSignUp.this, "failed to Signup " + e.getMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private void sendPasswordRequest() {
         AlertDialog.Builder builder
                 = new AlertDialog.Builder(this);
         builder.setTitle("Password Reset");
@@ -172,20 +168,18 @@ public class LoginAndSignUp extends AppCompatActivity {
         builder.setCancelable(true);
         EditText Email = customLayout.findViewById(R.id.resetEmail);
         builder.setPositiveButton("Send Password Reset", (dialog, which) -> {
-            if (TextUtils.isEmpty(Email.getText().toString())){
-                Toast.makeText(getApplicationContext(),"please enter your email" ,Toast.LENGTH_SHORT).show();
-            }
-            else if ((!Patterns.EMAIL_ADDRESS.matcher(Email.getText().toString()).matches())){
-                Toast.makeText(LoginAndSignUp.this,"Enter Valid Email Address",Toast.LENGTH_SHORT).show();
-            }
-            else {
+            if (TextUtils.isEmpty(Email.getText().toString())) {
+                Toast.makeText(getApplicationContext(), "please enter your email", Toast.LENGTH_SHORT).show();
+            } else if ((!Patterns.EMAIL_ADDRESS.matcher(Email.getText().toString()).matches())) {
+                Toast.makeText(LoginAndSignUp.this, "Enter Valid Email Address", Toast.LENGTH_SHORT).show();
+            } else {
                 String emailAddress = Email.getText().toString();
                 mAuth.sendPasswordResetEmail(emailAddress)
                         .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 dialog.dismiss();
                                 Toast.makeText(getApplicationContext(), "Password reset link has been sent to your email", Toast.LENGTH_SHORT).show();
-                            }else {
+                            } else {
                                 Toast.makeText(getApplicationContext(), "No User record found", Toast.LENGTH_SHORT).show();
 
                             }
@@ -198,7 +192,7 @@ public class LoginAndSignUp extends AppCompatActivity {
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialogbg);
     }
 
-    private void confirmPassword(){
+    private void confirmPassword() {
         AlertDialog.Builder builder
                 = new AlertDialog.Builder(this);
         builder.setTitle("Confirm Password");
@@ -212,31 +206,30 @@ public class LoginAndSignUp extends AppCompatActivity {
         builder.setCancelable(true);
         EditText cpssword = customLayout.findViewById(R.id.cPassword);
         builder.setPositiveButton("OK", (dialog, which) -> {
-            if (TextUtils.isEmpty(cpssword.getText().toString())){
+            if (TextUtils.isEmpty(cpssword.getText().toString())) {
 
                 Toast.makeText(LoginAndSignUp.this, "please enter the password you just created", Toast.LENGTH_SHORT).show();
 
-            }else if (!cpssword.getText().toString().equals(edtPassword.getText().toString())){
+            } else if (!cpssword.getText().toString().equals(edtPassword.getText().toString())) {
 
                 Toast.makeText(LoginAndSignUp.this, "Password Not Match", Toast.LENGTH_SHORT).show();
 
-            }else{
-                String Email,password;
+            } else {
+                String Email, password;
                 Email = edtEmail.getText().toString();
                 password = edtPassword.getText().toString();
-                progressDialog.setMessage(Email+" Please wait..."); // Setting Message
+                progressDialog.setMessage(Email + " Please wait..."); // Setting Message
                 progressDialog.setTitle("Signing Up"); // Setting Title
                 progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
                 progressDialog.show(); // Display Progress Dialog
                 progressDialog.setCancelable(false);
-                SignUpNewUser(Email,password);
+                SignUpNewUser(Email, password);
             }
         });
         AlertDialog dialog
                 = builder.create();
         dialog.show();
         dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialogbg);
-
 
 
     }

@@ -93,6 +93,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home1);
+
         InAppUpdate();
 
         mAuth = FirebaseAuth.getInstance();
@@ -110,7 +111,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         NavigationView navView = findViewById(R.id.navView);
         setSupportActionBar(toolbar);
 
-        View headerView = navView.getHeaderView(0);
+        android.view.View headerView = navView.getHeaderView(0);
 
         ImageButton mmelbetbanner = headerView.findViewById(R.id.melBetBanner1);
         TextView displaymail = headerView.findViewById(R.id.TxtEmail);
