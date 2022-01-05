@@ -17,14 +17,6 @@
         android:title="@string/vip_games"
         tools:ignore="AlwaysShowAction" />
 
-    <item
-        android:id="@+id/WhatsAppLink"
-        app:showAsAction="always"
-        android:icon="@mipmap/whatsapplogo"
-        android:title="ContactWhatsApp"
-        tools:ignore="AlwaysShowAction" />
-
-
 
 
     <item

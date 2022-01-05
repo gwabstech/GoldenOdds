@@ -25,6 +25,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -41,6 +42,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.billingclient.api.BillingClient;
+import com.android.billingclient.api.BillingClientStateListener;
+import com.android.billingclient.api.BillingResult;
+import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.android.billingclient.api.SkuDetails;
+import com.android.billingclient.api.SkuDetailsParams;
+import com.android.billingclient.api.SkuDetailsResponseListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
@@ -67,6 +76,7 @@ import com.startapp.sdk.adsbase.StartAppAd;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.Executors;
@@ -80,6 +90,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     FragmentTransaction fragmentTransaction;
     private FirebaseAuth mAuth;
     UpdateManager mUpdateManager;
+    BillingClient billingClient;
 
     // ADS VARIABLES
 
@@ -93,6 +104,17 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home1);
+
+        billingClient = BillingClient.newBuilder(HOME.this)
+                .enablePendingPurchases()
+                .setListener(new PurchasesUpdatedListener() {
+                    @Override
+                    public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> list) {
+
+                    }
+                })
+                .build();
+        connectToPlayStoreBilling();
 
         InAppUpdate();
 
@@ -150,6 +172,94 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
 
 
+
+    }
+
+    private void connectToPlayStoreBilling(){
+        billingClient.startConnection(new BillingClientStateListener() {
+            @Override
+            public void onBillingServiceDisconnected() {
+                connectToPlayStoreBilling();
+                Toast.makeText(getApplicationContext(), "faild", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK){
+                    getProductDetails();
+                }
+            }
+        });
+
+    }
+
+    private void getProductDetails(){
+
+        List<String> productId = new ArrayList<>();
+        //getProductId and add to arrayList
+        productId.add("viptkt3");
+        productId.add("vipticket2");
+        productId.add("viptikt1");
+
+        SkuDetailsParams getsProductsData = SkuDetailsParams
+                .newBuilder()
+                .setSkusList(productId)
+                .setType(BillingClient.SkuType.INAPP)
+                .build();
+
+
+       billingClient.querySkuDetailsAsync(getsProductsData, new SkuDetailsResponseListener() {
+           @Override
+           public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
+               if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK){
+                   if (list != null){
+                       // here i set the product to screen
+
+                       AlertDialog.Builder builder
+                               = new AlertDialog.Builder(HOME.this);
+                       final View customLayout
+                               = getLayoutInflater()
+                               .inflate(
+                                       R.layout.products_layout,
+                                       null);
+                       builder.setView(customLayout);
+                       builder.setCancelable(true);
+
+                       TextView txtProductName1, txtProductName2, txtProductName3;
+
+                       Button btnProductPrice1, btnProductPrice2, btnProductPrice3;
+
+                       txtProductName1 = customLayout.findViewById(R.id.txtProduct1Name);
+                       txtProductName2 = customLayout.findViewById(R.id.txtProduct2Name);
+                       txtProductName3 = customLayout.findViewById(R.id.txtProduct3Name);
+
+                       btnProductPrice1 = customLayout.findViewById(R.id.btnPriceProduct1);
+                       btnProductPrice2 = customLayout.findViewById(R.id.btnPriceProduct2);
+                       btnProductPrice3 = customLayout.findViewById(R.id.btnPriceProduct3);
+                       
+                       SkuDetails item1 = list.get(0);
+
+                       txtProductName1.setText(item1.getTitle());
+                       btnProductPrice1.setText(item1.getPrice());
+
+                       SkuDetails item2 = list.get(1);
+
+                       txtProductName2.setText(item2.getTitle());
+                       btnProductPrice2.setText(item2.getPrice());
+
+                       SkuDetails item3 = list.get(2);
+
+                       txtProductName3.setText(item3.getTitle());
+                       btnProductPrice3.setText(item3.getPrice());
+
+                       AlertDialog dialog
+                               = builder.create();
+                       dialog.show();
+                       dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialogbg);
+                   }
+               }
+           }
+       });
 
     }
 
@@ -223,22 +333,25 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
+/*
         if (item.getItemId() == R.id.WhatsAppLink) {
             try {
-                getviplink();
+                getWhatsApplink();
                 showAdds();
                 loadAds();
             } catch (NullPointerException nullPointerException) {
                 Log.i("stack", nullPointerException.toString());
             }
         }
+
+ */
         if (item.getItemId() == R.id.Aboutus) {
             Intent i = new Intent(this, AboutUs.class);
             startActivity(i);
         }
         if (item.getItemId() == R.id.VipGms){
             Toast.makeText(HOME.this, "Working on mee ", Toast.LENGTH_SHORT).show();
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -398,41 +511,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     }
 
 
-    private void getviplink(){
-        Query query  = myreff.child("vvipuri");
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String url= Objects.requireNonNull(snapshot.getValue()).toString();
 
-
-                try {
-                    Intent intent = new Intent(ACTION_VIEW, Uri.parse(url));
-                    // The URL should either launch directly in a non-browser app (if it's the
-                    // default), or in the disambiguation dialog.
-                    intent.addCategory(CATEGORY_BROWSABLE);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                        intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_REQUIRE_NON_BROWSER);
-                    }
-                    startActivity(intent);
-                } catch (ActivityNotFoundException e) {
-                    // Only browser apps are available, or a browser is the default.
-                    // So you can open the URL directly in your app, for example in a
-                    // Custom Tab.
-
-                    Intent intent = new Intent(ACTION_VIEW, Uri.parse(url));
-                    startActivity(intent);
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-                recreate();
-            }
-        });
-    }
 
     @SuppressLint("ResourceAsColor")
     public void show_PromoCodeDialog(String promoCode, String message, String Title, String aflink) {

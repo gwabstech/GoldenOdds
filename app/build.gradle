@@ -65,6 +65,12 @@ dependencies {
     implementation 'com.github.delight-im:Android-AdvancedWebView:v3.2.1'
     implementation 'io.github.medyo:android-about-page:2.0.0'
 
+    def billing_version = "4.0.0"
+
+    implementation "com.android.billingclient:billing:$billing_version"
+
+   // implementation 'com.anjlab.android.iab.v3:library:2.0.3'
+
 
 
 

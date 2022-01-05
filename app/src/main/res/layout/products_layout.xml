@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c)
+  ~   * Created by Gwabstech on 1/5/22, 11:09 PM
+  ~   * Copyright (c) 2022 . All rights reserved.
+  ~   * Last modified 1/5/22, 11:09 PM
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#19435343"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#36B1AD"
+        android:layout_height="40dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/VipGamesTitle"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="@string/vip_tickets"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_height="wrap_content"/>
+
+
+
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#6D226F95"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:elevation="4dp"
+        android:layout_gravity="center"
+        android:layout_height="80dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_margin="5dp"
+                android:textStyle="italic"
+                android:id="@+id/txtProduct1Name"
+                android:textAlignment="textStart"
+                android:padding="5dp"
+                android:elevation="5dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnPriceProduct1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.3"
+                android:background="#7BE30D"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#6D226F95"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:elevation="4dp"
+        android:layout_gravity="center"
+        android:layout_height="80dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_margin="5dp"
+                android:textStyle="italic"
+                android:id="@+id/txtProduct2Name"
+                android:textAlignment="textStart"
+                android:padding="5dp"
+                android:elevation="5dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnPriceProduct2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.3"
+                android:background="#7BE30D"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="#6D226F95"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:elevation="4dp"
+        android:layout_gravity="center"
+        android:layout_height="80dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:layout_margin="5dp"
+                android:textStyle="italic"
+                android:id="@+id/txtProduct3Name"
+                android:textAlignment="textStart"
+                android:padding="5dp"
+                android:elevation="5dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnPriceProduct3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="0.3"
+                android:background="#7BE30D"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
