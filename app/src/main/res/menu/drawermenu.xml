@@ -49,9 +49,7 @@
                     android:id="@+id/LogOut"
                     android:title="@string/logout"/>
 
-                <item
-                    android:id="@+id/Exit"
-                    android:title="@string/exit" />
+
 
 
             </group>

@@ -214,12 +214,6 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
                 break;
 
-            case R.id.Exit:
-                finishAffinity();
-                finish();
-                break;
-
-
             default:
                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
         }
@@ -230,7 +224,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId() == R.id.VipGms) {
+        if (item.getItemId() == R.id.WhatsAppLink) {
             try {
                 getviplink();
                 showAdds();
@@ -242,6 +236,9 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         if (item.getItemId() == R.id.Aboutus) {
             Intent i = new Intent(this, AboutUs.class);
             startActivity(i);
+        }
+        if (item.getItemId() == R.id.VipGms){
+            Toast.makeText(HOME.this, "Working on mee ", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

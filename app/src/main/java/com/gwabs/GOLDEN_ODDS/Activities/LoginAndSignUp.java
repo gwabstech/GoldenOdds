@@ -89,18 +89,27 @@ public class LoginAndSignUp extends AppCompatActivity {
 
         btnSignup.setOnClickListener(v -> {
 
-            if (TextUtils.isEmpty(edtEmail.getText().toString()) || TextUtils.isEmpty(edtPassword.getText().toString())) {
+            if (TextUtils.isEmpty(edtEmail.getText().toString())) {
 
-                Toast.makeText(getApplicationContext(), "please enter your email and password", Toast.LENGTH_SHORT).show();
+                edtEmail.setError("please enter your email");
+
+            } else if (TextUtils.isEmpty(edtPassword.getText().toString())) {
+
+                edtEmail.setError("please enter your password");
+
             } else if (TextUtils.isEmpty(edtEmail.getText().toString()) && TextUtils.isEmpty(edtPassword.getText().toString())) {
 
-                Toast.makeText(getApplicationContext(), "Enter your user name and password to Sign Up", Toast.LENGTH_SHORT).show();
-            } else if (edtPassword.getText().length() < 4 && !Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()) {
-                Toast.makeText(LoginAndSignUp.this, "Enter a Valid Email," + "\nPassword should be more than 4 characters", Toast.LENGTH_SHORT).show();
+                edtEmail.setError("Enter your user name and password to signup");
+
+
             } else if (edtPassword.getText().length() < 4) {
-                Toast.makeText(LoginAndSignUp.this, "Password can't be less then 4 characters", Toast.LENGTH_SHORT).show();
+
+                edtPassword.setError("Password should be more than 4 characters");
+
             } else if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()) {
-                Toast.makeText(LoginAndSignUp.this, "Enter Valid Email Address", Toast.LENGTH_SHORT).show();
+
+                edtEmail.setError("Enter a Valid Email");
+
             } else {
                 confirmPassword();
             }
