@@ -90,7 +90,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     FragmentTransaction fragmentTransaction;
     private FirebaseAuth mAuth;
     UpdateManager mUpdateManager;
-    BillingClient billingClient;
+
 
     // ADS VARIABLES
 
@@ -105,16 +105,8 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home1);
 
-        billingClient = BillingClient.newBuilder(HOME.this)
-                .enablePendingPurchases()
-                .setListener(new PurchasesUpdatedListener() {
-                    @Override
-                    public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> list) {
 
-                    }
-                })
-                .build();
-        connectToPlayStoreBilling();
+
 
         InAppUpdate();
 
@@ -170,96 +162,6 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         }, 60, 120, TimeUnit.SECONDS);
 
 
-
-
-
-    }
-
-    private void connectToPlayStoreBilling(){
-        billingClient.startConnection(new BillingClientStateListener() {
-            @Override
-            public void onBillingServiceDisconnected() {
-                connectToPlayStoreBilling();
-                Toast.makeText(getApplicationContext(), "faild", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
-                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK){
-                    getProductDetails();
-                }
-            }
-        });
-
-    }
-
-    private void getProductDetails(){
-
-        List<String> productId = new ArrayList<>();
-        //getProductId and add to arrayList
-        productId.add("viptkt3");
-        productId.add("vipticket2");
-        productId.add("viptikt1");
-
-        SkuDetailsParams getsProductsData = SkuDetailsParams
-                .newBuilder()
-                .setSkusList(productId)
-                .setType(BillingClient.SkuType.INAPP)
-                .build();
-
-
-       billingClient.querySkuDetailsAsync(getsProductsData, new SkuDetailsResponseListener() {
-           @Override
-           public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
-               if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK){
-                   if (list != null){
-                       // here i set the product to screen
-
-                       AlertDialog.Builder builder
-                               = new AlertDialog.Builder(HOME.this);
-                       final View customLayout
-                               = getLayoutInflater()
-                               .inflate(
-                                       R.layout.products_layout,
-                                       null);
-                       builder.setView(customLayout);
-                       builder.setCancelable(true);
-
-                       TextView txtProductName1, txtProductName2, txtProductName3;
-
-                       Button btnProductPrice1, btnProductPrice2, btnProductPrice3;
-
-                       txtProductName1 = customLayout.findViewById(R.id.txtProduct1Name);
-                       txtProductName2 = customLayout.findViewById(R.id.txtProduct2Name);
-                       txtProductName3 = customLayout.findViewById(R.id.txtProduct3Name);
-
-                       btnProductPrice1 = customLayout.findViewById(R.id.btnPriceProduct1);
-                       btnProductPrice2 = customLayout.findViewById(R.id.btnPriceProduct2);
-                       btnProductPrice3 = customLayout.findViewById(R.id.btnPriceProduct3);
-                       
-                       SkuDetails item1 = list.get(0);
-
-                       txtProductName1.setText(item1.getTitle());
-                       btnProductPrice1.setText(item1.getPrice());
-
-                       SkuDetails item2 = list.get(1);
-
-                       txtProductName2.setText(item2.getTitle());
-                       btnProductPrice2.setText(item2.getPrice());
-
-                       SkuDetails item3 = list.get(2);
-
-                       txtProductName3.setText(item3.getTitle());
-                       btnProductPrice3.setText(item3.getPrice());
-
-                       AlertDialog dialog
-                               = builder.create();
-                       dialog.show();
-                       dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialogbg);
-                   }
-               }
-           }
-       });
 
     }
 
@@ -351,6 +253,9 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
         }
         if (item.getItemId() == R.id.VipGms){
             Toast.makeText(HOME.this, "Working on mee ", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(HOME.this,VipProducts.class);
+            startActivity(intent);
 
         }
         return super.onOptionsItemSelected(item);

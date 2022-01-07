@@ -17,7 +17,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:background="#36B1AD"
-        android:layout_height="40dp">
+        android:layout_height="62dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
         app:cardCornerRadius="10dp"
         android:elevation="4dp"
         android:layout_gravity="center"
-        android:layout_height="80dp">
+        android:layout_height="100dp">
 
 
         <LinearLayout
@@ -58,6 +58,8 @@
                 android:layout_margin="5dp"
                 android:textStyle="italic"
                 android:id="@+id/txtProduct1Name"
+                android:textSize="16sp"
+                android:textColor="@color/primaryTextColor"
                 android:textAlignment="textStart"
                 android:padding="5dp"
                 android:elevation="5dp"
@@ -72,8 +74,9 @@
                 android:background="#7BE30D"
                 android:gravity="center"
                 android:padding="5dp"
+                android:textColor="@color/primaryTextColor"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -88,7 +91,7 @@
         app:cardCornerRadius="10dp"
         android:elevation="4dp"
         android:layout_gravity="center"
-        android:layout_height="80dp">
+        android:layout_height="100dp">
 
 
         <LinearLayout
@@ -105,6 +108,7 @@
                 android:textStyle="italic"
                 android:id="@+id/txtProduct2Name"
                 android:textAlignment="textStart"
+                android:textColor="@color/primaryTextColor"
                 android:padding="5dp"
                 android:elevation="5dp"
                 android:layout_height="wrap_content"/>
@@ -118,8 +122,9 @@
                 android:background="#7BE30D"
                 android:gravity="center"
                 android:padding="5dp"
+                android:textColor="@color/primaryTextColor"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -134,7 +139,7 @@
         app:cardCornerRadius="10dp"
         android:elevation="4dp"
         android:layout_gravity="center"
-        android:layout_height="80dp">
+        android:layout_height="100dp">
 
 
         <LinearLayout
@@ -150,6 +155,8 @@
                 android:layout_margin="5dp"
                 android:textStyle="italic"
                 android:id="@+id/txtProduct3Name"
+                android:textColor="@color/primaryTextColor"
+                android:textSize="16sp"
                 android:textAlignment="textStart"
                 android:padding="5dp"
                 android:elevation="5dp"
@@ -164,8 +171,9 @@
                 android:background="#7BE30D"
                 android:gravity="center"
                 android:padding="5dp"
+                android:textColor="@color/primaryTextColor"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 tools:ignore="SpeakableTextPresentCheck" />
 

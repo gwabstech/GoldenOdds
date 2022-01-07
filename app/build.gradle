@@ -17,9 +17,8 @@ android {
         applicationId "com.gwabs.navdrawerexample"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 8
-        versionName "Gold"
-
+        versionCode 10
+        versionName "Gold1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
