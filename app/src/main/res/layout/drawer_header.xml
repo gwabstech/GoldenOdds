@@ -43,10 +43,10 @@
     </LinearLayout>
 
     <include
-        android:layout_below="@id/Son"
-        layout="@layout/melbetbanner"
+        layout="@layout/iwinbanner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent" />
+        android:layout_below="@id/Son" />
 
 
 

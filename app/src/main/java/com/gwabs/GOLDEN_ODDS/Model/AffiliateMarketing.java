@@ -9,13 +9,13 @@ package com.gwabs.GOLDEN_ODDS.Model;
 
 public class AffiliateMarketing {
 
-   private final String melbetmessage = "Register and Stake with MELBET to enjoy Highest odds with 200% welcome bonus. \nDont forget to copy and use KOPAT as promo code to enjoy 300% first deposit bonus.";
+   private final String iwin_message = "Register and Stake with 1WIN to enjoy Highest odds with 500% bonus. \nDont forget to copy and use GoldenOdds as promo code to enjoy 500% first deposit bonus.";
 
-   private final String melbetTitle = "Stake with Melbet";
+   private final String iwin_Title = "Stake with 1WIN";
 
-   private final String melbetPromocode ="KOPAT";
+   private final String iwin_Promocode ="GoldenOdds";
 
-   private final String melbetAfLink = "https://refpakrtsb.top/L?tag=d_1099631m_18639c_goldenoddds&site=1099631&ad=18639&r=registration";
+   private final String iwin_AfLink = "https://1wizc.top/?open=register&sub1=Golden#48lx";
 
 
 
@@ -27,16 +27,16 @@ public class AffiliateMarketing {
 
    private final String OnebetPromocode ="GOLDENODDS";
 
-   public String getMelbetmessage() {
-      return melbetmessage;
+   public String getIwin_message() {
+      return iwin_message;
    }
 
-   public String getMelbetTitle() {
-      return melbetTitle;
+   public String getIwin_Title() {
+      return iwin_Title;
    }
 
-   public String getMelbetAfLink() {
-      return melbetAfLink;
+   public String getIwin_AfLink() {
+      return iwin_AfLink;
    }
 
    public String getOneXbetmessage() {
@@ -51,8 +51,8 @@ public class AffiliateMarketing {
       return OnexbetAfLink;
    }
 
-   public String getMelbetPromocode() {
-      return melbetPromocode;
+   public String getIwin_Promocode() {
+      return iwin_Promocode;
    }
 
    public String getOnebetPromocode() {

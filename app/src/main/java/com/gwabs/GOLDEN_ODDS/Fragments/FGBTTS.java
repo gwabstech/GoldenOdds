@@ -86,8 +86,8 @@ public class FGBTTS extends Fragment {
             @Override
             public void onItemClick(View itemView, int position) {
                 AffiliateMarketing affiliateMarketing = new AffiliateMarketing();
-                show_PromoCodeDialog(affiliateMarketing.getMelbetPromocode(),affiliateMarketing.getMelbetmessage()
-                        ,affiliateMarketing.getMelbetTitle(),affiliateMarketing.getMelbetAfLink());
+                show_PromoCodeDialog(affiliateMarketing.getIwin_Promocode(),affiliateMarketing.getIwin_message()
+                        ,affiliateMarketing.getIwin_Title(),affiliateMarketing.getIwin_AfLink());
             }
         });
 

@@ -13,8 +13,8 @@
         <menu>
             <group>
                 <item
-                    android:id="@+id/Melbet"
-                    android:title="@string/melbet" />
+                    android:id="@+id/ONEWIN"
+                    android:title="@string/one_win" />
                 <item
                     android:id="@+id/onexbet"
                     android:title="@string/_1xbet" />

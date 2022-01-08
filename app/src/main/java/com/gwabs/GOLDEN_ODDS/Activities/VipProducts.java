@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -27,12 +30,19 @@ import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
 import com.android.billingclient.api.SkuDetailsResponseListener;
+import com.gwabs.GOLDEN_ODDS.Fragments.PremioumAndVipTabLayout;
+import com.gwabs.GOLDEN_ODDS.Fragments.TabLayoutfragment;
 import com.gwabs.GOLDEN_ODDS.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class VipProducts extends AppCompatActivity {
+
+
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     BillingClient billingClient;
     private TextView txtProductName1, txtProductName2, txtProductName3;
@@ -41,8 +51,17 @@ public class VipProducts extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.products_layout);
 
+        setContentView(R.layout.products_layout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("VIP SECTION");
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.contener_fragment,new PremioumAndVipTabLayout());
+        fragmentTransaction.commit();
+/*
         txtProductName1 = findViewById(R.id.txtProduct1Name);
         txtProductName2 = findViewById(R.id.txtProduct2Name);
         txtProductName3 = findViewById(R.id.txtProduct3Name);
@@ -62,9 +81,11 @@ public class VipProducts extends AppCompatActivity {
                 })
                 .build();
         connectToPlayStoreBilling();
+
+ */
     }
 
-    private void connectToPlayStoreBilling(){
+    private void  connectToPlayStoreBilling(){
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
             public void onBillingServiceDisconnected() {

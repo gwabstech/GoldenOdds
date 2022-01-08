@@ -25,7 +25,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,14 +41,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.billingclient.api.BillingClient;
-import com.android.billingclient.api.BillingClientStateListener;
-import com.android.billingclient.api.BillingResult;
-import com.android.billingclient.api.Purchase;
-import com.android.billingclient.api.PurchasesUpdatedListener;
-import com.android.billingclient.api.SkuDetails;
-import com.android.billingclient.api.SkuDetailsParams;
-import com.android.billingclient.api.SkuDetailsResponseListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
@@ -76,7 +67,6 @@ import com.startapp.sdk.adsbase.StartAppAd;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.Executors;
@@ -127,7 +117,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
         android.view.View headerView = navView.getHeaderView(0);
 
-        ImageButton mmelbetbanner = headerView.findViewById(R.id.melBetBanner1);
+        ImageButton imBtniwinbanner = headerView.findViewById(R.id.iwinbanner);
         TextView displaymail = headerView.findViewById(R.id.TxtEmail);
         displaymail.setText(Objects.requireNonNull(currentUser.getEmail()).toUpperCase(Locale.ROOT));
         // SETTING THE TIITLE OF ACTION BAR
@@ -147,7 +137,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
         afmData = new AffiliateMarketing();
 
-        mmelbetbanner.setOnClickListener(v -> show_PromoCodeDialog(afmData.getMelbetPromocode(),afmData.getMelbetmessage(),afmData.getMelbetTitle(),afmData.getMelbetAfLink()));
+        imBtniwinbanner.setOnClickListener(v -> show_PromoCodeDialog(afmData.getIwin_Promocode(),afmData.getIwin_message(),afmData.getIwin_Title(),afmData.getIwin_AfLink()));
 
         // VARIABLLE DECLIRATION
 
@@ -192,8 +182,8 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.Melbet:
-                show_PromoCodeDialog(afmData.getMelbetPromocode(),afmData.getMelbetmessage(),afmData.getMelbetTitle(),afmData.getMelbetAfLink());
+            case R.id.ONEWIN:
+                show_PromoCodeDialog(afmData.getIwin_Promocode(),afmData.getIwin_message(),afmData.getIwin_Title(),afmData.getIwin_AfLink());
                 break;
             case R.id.onexbet:
                 show_PromoCodeDialog(afmData.getOnebetPromocode(),afmData.getOneXbetmessage(),afmData.getOnexbetTitle(),afmData.getOnexbetAfLink());
@@ -419,7 +409,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
 
 
     @SuppressLint("ResourceAsColor")
-    public void show_PromoCodeDialog(String promoCode, String message, String Title, String aflink) {
+    public  void show_PromoCodeDialog(String promoCode, String message, String Title, String aflink) {
 
 
         AlertDialog.Builder builder
