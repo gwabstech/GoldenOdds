@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c)
+  ~   * Created by Gwabstech on 1/10/22, 11:18 PM
+  ~   * Copyright (c) 2022 . All rights reserved.
+  ~   * Last modified 1/10/22, 11:18 PM
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:orientation="vertical"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="#a0ffff"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="4dp"
+        app:contentPadding="10dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtOneOffGameType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_margin="3dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:text="GameType"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtOneOffGameTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtOneOffGameType"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:padding="5dp"
+                android:text="title"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtOneOffGameDiscription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOneOffGameTitle"
+                android:padding="5dp"
+                android:text="Description"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtOneOffGameDiscription"
+                android:layout_centerInParent="true"
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btnbg"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -55,7 +55,8 @@ public class VipProducts extends AppCompatActivity {
         setContentView(R.layout.products_layout);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("VIP SECTION");
+        Objects.requireNonNull(getSupportActionBar()).setLogo(R.drawable.ic_icon_soccerball);
+
 
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
@@ -134,6 +135,7 @@ public class VipProducts extends AppCompatActivity {
                         Log.i("p",list.get(0).getDescription());
                         String Product1price = list.get(0).getPrice();
                         btnProductPrice1.setText(Product1price);
+
                         Log.i("p",list.get(0).getPrice().toString());
 
 
