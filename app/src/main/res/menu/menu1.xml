@@ -14,6 +14,7 @@
     <item
         android:id="@+id/VipGms"
         app:showAsAction="always"
+        android:icon="@drawable/inapp_vip_logo"
         android:title="@string/vip_games"
         tools:ignore="AlwaysShowAction" />
 

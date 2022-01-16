@@ -54,7 +54,6 @@ public class tabAdapter extends FragmentPagerAdapter {
                 return "MULTI GOALS";
             case 2:
                 return "BTTS";
-
             default:
                 return null;
         }

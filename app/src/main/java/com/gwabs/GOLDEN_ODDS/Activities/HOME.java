@@ -147,7 +147,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
             runOnUiThread(() -> {
 
                 loadAds();
-                showAdds();
+               // showAdds();
             });
         }, 60, 120, TimeUnit.SECONDS);
 
@@ -242,8 +242,7 @@ public class HOME extends AppCompatActivity  implements NavigationView.OnNavigat
             startActivity(i);
         }
         if (item.getItemId() == R.id.VipGms){
-            Toast.makeText(HOME.this, "Working on mee ", Toast.LENGTH_SHORT).show();
-
+           // Toast.makeText(HOME.this, "Working on mee ", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(HOME.this,VipProducts.class);
             startActivity(intent);
 

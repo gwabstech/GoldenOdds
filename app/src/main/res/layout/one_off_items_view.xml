@@ -10,6 +10,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
     android:layout_margin="7dp"
     android:orientation="vertical"
     >
@@ -20,65 +21,79 @@
         android:layout_margin="4dp"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="#a0ffff"
-        app:cardCornerRadius="40dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:contentPadding="10dp">
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_margin="10dp"
-            android:layout_height="wrap_content">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:orientation="vertical"
+          android:layout_margin="5dp"
+          android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/txtOneOffGameType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_margin="3dp"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:text="GameType"
-                android:textStyle="bold" />
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:orientation="horizontal"
+              android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/txtOneOffGameTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtOneOffGameType"
-                android:layout_marginStart="3dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginEnd="3dp"
-                android:layout_marginBottom="3dp"
-                android:padding="5dp"
-                android:text="title"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtOneOffGameDiscription"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtOneOffGameTitle"
-                android:padding="5dp"
-                android:text="Description"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+              <de.hdodenhof.circleimageview.CircleImageView
+                  android:layout_width="90dp"
+                  android:layout_marginEnd="5dp"
+                  android:src="@drawable/inapp_vip_logo"
+                  android:layout_height="90dp"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtOneOffGameDiscription"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/btnbg"
-                android:padding="5dp"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </RelativeLayout>
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_gravity="center"
+                  android:layout_height="wrap_content">
+
+                  <TextView
+                      android:id="@+id/txtProductName"
+                      android:layout_margin="5dp"
+                      android:textColor="#D3000000"
+                      android:textSize="16sp"
+                      android:padding="2dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"/>
+
+                  <TextView
+                      android:id="@+id/txtProductDiscription"
+                      android:textSize="16sp"
+                      android:textColor="#D3000000"
+                      android:padding="2dp"
+                      android:layout_margin="5dp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"/>
+
+              </LinearLayout>
+
+          </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_gravity="center"
+             android:orientation="vertical"
+             android:padding="5dp"
+             android:layout_margin="5dp"
+             android:layout_height="wrap_content">
+
+             <Button
+                 android:background="@drawable/botton12"
+                 android:layout_width="wrap_content"
+                 android:padding="5dp"
+                 android:id="@+id/btnBuy"
+                 android:textStyle="bold"
+                 android:textSize="16sp"
+                 android:textColor="#D3000000"
+                 android:text="BUY NOW "
+                 android:layout_height="wrap_content"/>
+
+         </LinearLayout>
+
+      </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

@@ -40,7 +40,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.gwabs.GOLDEN_ODDS.Activities.HOME;
-import com.gwabs.GOLDEN_ODDS.Model.AffiliateMarketing;
 import com.gwabs.GOLDEN_ODDS.Model.Massage;
 import com.gwabs.GOLDEN_ODDS.R;
 import com.gwabs.GOLDEN_ODDS.Adapters.myAdapter;
@@ -82,9 +81,9 @@ public class fg1x2 extends Fragment {
             @Override
             public void onItemClick(View itemView, int position) {
 
-                AffiliateMarketing affiliateMarketing = new AffiliateMarketing();
-                show_PromoCodeDialog(affiliateMarketing.getIwin_Promocode(),affiliateMarketing.getIwin_message()
-                        ,affiliateMarketing.getIwin_Title(),affiliateMarketing.getIwin_AfLink());
+               //AffiliateMarketing affiliateMarketing = new AffiliateMarketing();
+              //  show_PromoCodeDialog(affiliateMarketing.getIwin_Promocode(),affiliateMarketing.getIwin_message()
+                  //      ,affiliateMarketing.getIwin_Title(),affiliateMarketing.getIwin_AfLink());
 
             }
         });

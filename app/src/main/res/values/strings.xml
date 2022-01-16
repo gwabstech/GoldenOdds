@@ -62,6 +62,8 @@
     <string name="others">Others</string>
     <string name="about_us">About us</string>
     <string name="vip_tickets">VIP Tickets</string>
+    <string name="buy_now">BUY NOW</string>
+    <string name="please_wait">Please wait</string>
 
 
 </resources>

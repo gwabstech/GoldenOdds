@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:weightSum="8"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Fragments.ONE_OFF">
+    tools:context=".Activities.VipProducts">
 
+    <include
+        layout="@layout/main_toolber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/oneOffRecylerView"
         android:layout_marginBottom="3dp"
+        android:layout_weight="7.2"
+        android:orientation="vertical"
         android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 
-        android:layout_height="wrap_content"/>
-</FrameLayout>
+
+   <ImageButton
+       android:background="@android:color/transparent"
+       android:layout_width="match_parent"
+       android:src="@drawable/iwinbanner"
+       android:id="@+id/vip1winBannerIV"
+       android:scaleType="fitXY"
+       android:padding="2dp"
+       android:layout_weight="0.8"
+       android:contentDescription="@string/todo"
+       android:layout_height="0dp"/>
+
+
+
+
+
+</LinearLayout>

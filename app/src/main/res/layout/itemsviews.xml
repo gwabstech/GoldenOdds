@@ -83,7 +83,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/game"
+                android:id="@+id/massage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/date_and_time"
@@ -109,7 +109,7 @@
                 android:id="@+id/selection_and_odd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/game"
+                android:layout_below="@+id/massage"
                 android:layout_marginTop="4dp"
                 android:elevation="1dp"
                 android:gravity="center"
