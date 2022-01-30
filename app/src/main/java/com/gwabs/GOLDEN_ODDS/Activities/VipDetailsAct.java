@@ -1,16 +1,22 @@
 /*
  * Copyright (c)
- *   * Created by Gwabstech on 10/8/21, 6:02 PM
- *   * Copyright (c) 2021 . All rights reserved.
- *   * Last modified 10/8/21, 3:24 PM
+ *   * Created by Gwabstech on 1/30/22, 8:27 PM
+ *   * Copyright (c) 2022 . All rights reserved.
+ *   * Last modified 1/30/22, 8:26 PM
  */
 
-package com.gwabs.GOLDEN_ODDS.Fragments;
+package com.gwabs.GOLDEN_ODDS.Activities;
 
 import static android.content.Intent.ACTION_VIEW;
 import static android.content.Intent.CATEGORY_BROWSABLE;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_REQUIRE_NON_BROWSER;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ActivityNotFoundException;
 import android.content.ClipData;
@@ -21,62 +27,42 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.gwabs.GOLDEN_ODDS.Activities.HOME;
+import com.gwabs.GOLDEN_ODDS.Adapters.myAdapter;
 import com.gwabs.GOLDEN_ODDS.Model.AffiliateMarketing;
 import com.gwabs.GOLDEN_ODDS.Model.Massage;
 import com.gwabs.GOLDEN_ODDS.R;
-import com.gwabs.GOLDEN_ODDS.Adapters.myAdapter;
 import com.gwabs.GOLDEN_ODDS.clickListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-
-public class FgMultiGoals extends Fragment {
-
-
-
-    public FgMultiGoals() {
-        // Required empty public constructor
-    }
+public class VipDetailsAct extends AppCompatActivity {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fg_multi_goals, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_vip_details);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerview2);
-        LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(getContext());
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        RecyclerView recyclerView = findViewById(R.id.VipGamesdetRv);
+        LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-
         HOME home = new HOME();
 
 
-        // firebase
-
         DatabaseReference myreff = FirebaseDatabase.getInstance().getReference();
 
-        // Arraylist
-
-
-        ArrayList<Massage> massagelist = new ArrayList<>();
-        myAdapter myAdapter = new myAdapter(getContext(), massagelist, new clickListener() {
+        ArrayList<Massage> VipGamesList = new ArrayList<>();
+        myAdapter myAdapter = new myAdapter(this, VipGamesList, new clickListener() {
             @Override
             public void onItemClick(View itemView, int position) {
 
@@ -87,25 +73,23 @@ public class FgMultiGoals extends Fragment {
             }
         });
 
-        home.ClearAll(massagelist,myAdapter);
+        home.ClearAll(VipGamesList,myAdapter);
 
 
         final String sunandata = "multi goals";
+        String title = "";
+        Objects.requireNonNull(getSupportActionBar()).setTitle(title);
 
-        home.getDataFromFirebase(sunandata,massagelist,recyclerView,myAdapter,myreff);
+        home.getDataFromFirebase(sunandata,VipGamesList,recyclerView,myAdapter,myreff);
 
 
-        return  view;
-        //
     }
-
-
 
     public void show_PromoCodeDialog(String promoCode, String message, String Title, String aflink) {
 
 
         AlertDialog.Builder builder
-                = new AlertDialog.Builder(requireContext());
+                = new AlertDialog.Builder(this);
         builder.setTitle(Title);
 
         final View customLayout
@@ -124,10 +108,10 @@ public class FgMultiGoals extends Fragment {
             public void onClick(View v) {
 
                 ClipboardManager clipboard = (ClipboardManager)
-                        requireActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                      getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("simple text", promoCode);
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(requireContext(),"Promo code copied",Toast.LENGTH_SHORT).show();
+                Toast.makeText(VipDetailsAct.this,"Promo code copied",Toast.LENGTH_SHORT).show();
 
             }
         });

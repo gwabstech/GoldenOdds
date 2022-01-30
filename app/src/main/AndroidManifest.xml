@@ -17,21 +17,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.VipProducts"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:name=".Activities.VipDetailsAct"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:exported="false" />
+        <activity
+            android:name=".Activities.VipProducts"
+            android:exported="false"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".Activities.AboutUs"
             android:exported="true"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Activities.HOME"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".Activities.Privacypolicy"
             android:exported="true"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".Activities.LoginAndSignUp"
             android:exported="true"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".Activities.HOME"

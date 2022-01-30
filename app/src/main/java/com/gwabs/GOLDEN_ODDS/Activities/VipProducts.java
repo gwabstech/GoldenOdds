@@ -57,6 +57,7 @@ public class VipProducts extends AppCompatActivity implements Serializable{
 
     @SuppressLint("NotifyDataSetChanged")
     @Override
+    
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_o_n_e__o_f);
@@ -69,17 +70,22 @@ public class VipProducts extends AppCompatActivity implements Serializable{
                     @Override
                     public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> list) {
 
+                        if (billingResult.getResponseCode()  == BillingClient.BillingResponseCode.OK && list != null){
+
+                            for (Purchase purchase :  list){
+                                if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED && !purchase.isAcknowledged()){
+
+
+                                }
+                            }
+                        }
                     }
                 })
                 .build();
         // connecting to play billing and retrieve products
         connectToPlayBilling();
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Vip Games");
-        oneOfRv = findViewById(R.id.oneOffRecylerView);
-        IMBoneWinBanner = findViewById(R.id.vip1winBannerIV);
+
 
 
 
